@@ -29,6 +29,7 @@ Nella sezione privata l'utente visualizzerà qualche indice statistico su come s
 Template:
 
 EXIF php: https://www.php.net/manual/en/book.exif.php
+
 EXIF geo location: https://stackoverflow.com/questions/2526304/php-extract-gps-exif-data
 
 ecc. ecc.
