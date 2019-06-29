@@ -28,9 +28,15 @@ Nella sezione privata l'utente visualizzerà qualche indice statistico su come s
 
 Template:
 
-EXIF php: https://www.php.net/manual/en/book.exif.php
+[PHP] EXIF: https://www.php.net/manual/en/book.exif.php
 
-EXIF geo location: https://stackoverflow.com/questions/2526304/php-extract-gps-exif-data
+[PHP]  EXIF geo location: https://stackoverflow.com/questions/2526304/php-extract-gps-exif-data
+
+[PHP] Image Optimization: https://cloudinary.com/blog/image_optimization_in_php
+
+[PHP]  Image compression: https://stackoverflow.com/questions/11418594/which-is-the-best-php-method-to-reduce-the-image-size-without-losing-quality
+
+[Laravel] Upload Image and Crop: https://artisansweb.net/how-to-upload-and-crop-image-in-laravel-using-imgareaselect-intervention-image-library/ 
 
 ecc. ecc.
 
