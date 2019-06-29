@@ -9,10 +9,20 @@ Nella sezione privata l'utente visualizzerà qualche indice statistico su come s
 ---
 **Requisiti**
 
-* Registrazione utente
+* Registrazione utente (info personali e immagine)
+    * Nome
+    * Cognome
+    * email
+    * Nickname
+    * Password
+    * Foto profilo
+    * Biografia (?)
+    * Interessi (griglia con una ventina di checkbox, ci sta?)
 * Login utente
-* Upload immagini
-* Tip positivo e negativo (e somma dei due)
+* Upload immagini e ridimenzionamento quadrato
+    * Descrizione
+    * Geolocalizzaione (se dispobile)
+* Tip positivo, negativo e delta
 * Analisi EXIF immagini (chiamata a servizi terzi secondo me inutile e lunga da fare)
 * Profilo utente con info personali e grafici per l'andamento dei post
     * grafico con il resoconto dei tip (visualizzazione 1d, 1w, 1m, 1a)
@@ -20,13 +30,18 @@ Nella sezione privata l'utente visualizzerà qualche indice statistico su come s
     * grafico a barre ad esempio con i dispositivi utilizzati per scattare le immagini
 * Vedere se si può tracciare dai dati EXIF il luogo dello scatto
 * Gestione dello spazio web per l'upload delle immagini
-* Ridimenzionamento delle immagini con dimensioni quadrate (secondo me)
+* Funzione "Cerca"
+    * Utenti
+    * Hashtag (se li mettiamo)
+    * Interessi (se li mettiamo)
 
 ---
 
 **Link alle risorse**
 
 Template:
+
+[Icon] Repo icone: https://www.flaticon.com/
 
 [PHP] EXIF: https://www.php.net/manual/en/book.exif.php
 
@@ -36,7 +51,9 @@ Template:
 
 [PHP]  Image compression: https://stackoverflow.com/questions/11418594/which-is-the-best-php-method-to-reduce-the-image-size-without-losing-quality
 
-[Laravel] Upload Image and Crop: https://artisansweb.net/how-to-upload-and-crop-image-in-laravel-using-imgareaselect-intervention-image-library/ 
+[Laravel] Upload Image and Crop: https://artisansweb.net/how-to-upload-and-crop-image-in-laravel-using-imgareaselect-intervention-image-library/
+
+[JS] Libreria grafici: https://www.chartjs.org/
 
 ecc. ecc.
 
