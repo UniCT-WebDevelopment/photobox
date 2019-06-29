@@ -39,7 +39,7 @@ Nella sezione privata l'utente visualizzerà qualche indice statistico su come s
 
 **Link alle risorse**
 
-Template:
+Template: https://colorlib.com/preview/#cocoon
 
 [Icon] Repo icone: https://www.flaticon.com/
 
