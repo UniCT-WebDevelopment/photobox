@@ -1581,7 +1581,7 @@ img {
 }
 
 .menu_block {
-  background-color: #18181c;
+  background-color: #f2f2f2;
   min-height: 100vh;
   padding: 0;
 }
@@ -1590,11 +1590,11 @@ img {
   padding: 25px 10px;
 }
 .menu_block .side_menu_section {
-  margin-top: 50px;
+  margin-top: 30px;
 }
 .menu_block .side_title {
   padding-left: 50px;
-  color: #99896e;
+  /* color: #99896e; */
   text-transform: capitalize;
   font-size: 15px;
   margin-bottom: 25px;
@@ -1637,10 +1637,11 @@ img {
   display: inline-block;
   padding: 12px 25px 12px 50px;
   background-color: transparent;
-  color: #ffffff;
+  color: #000000;
 }
 .menu_nav li a:hover {
   background-color: #99896e;
+  color: #ffffff;
 }
 .menu_nav li a:focus {
   background-color: #99896e;
@@ -1682,7 +1683,7 @@ img {
   display: inline-block;
   padding: 8px 15px 8px 50px;
   text-transform: capitalize;
-  color: #ffffff;
+  color: #000000;
 }
 .filter_nav li a:hover {
   background-color: #99896e;
@@ -2488,3 +2489,37 @@ textarea.form-control {
 .accordion_card .card-body {
   font-size: 16px;
 }
+
+#colorlib-aside #colorlib-logo {
+  margin-bottom: 0em;
+  display: block;
+  width: 100%;
+  font-size: 24px; 
+}
+#colorlib-aside #colorlib-logo span.img {
+  display: block;
+  width: 160px;
+  height: 160px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  margin: 0 auto;
+  margin-bottom: 15px; 
+}
+@media (max-width: 991.98px) {
+  #colorlib-aside #colorlib-logo {
+    margin-bottom: 20px; 
+  } 
+}
+#colorlib-aside #colorlib-logo a {
+  display: inline-block;
+  text-align: center;
+  color: #000000; 
+  font-weight: 700;
+  font-size: 1em;
+}
+#colorlib-aside #colorlib-logo .img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center; }

@@ -43,45 +43,36 @@
         <!--=================== side menu ====================-->
         <div class="col-lg-2 col-md-3 col-12 menu_block">
 
-            <!--logo -->
-            <div class="logo_box">
-                <a href="#">
-                    <img src="images/cocoon/logo.png" alt="cocoon">
-                </a>
+            <!-- profile photo -->
+            <div id="colorlib-aside" class="logo_box">
+                <h1 id="colorlib-logo">
+                    <span class="img" style="background-image: url(images/users/author.jpg);"></span>
+                    <a href="#">Mario Piazza</a>
+                </h1>
             </div>
-            <!--logo end-->
+            <!-- profile photo end-->
 
             <!--main menu -->
             <div class="side_menu_section">
                 <ul class="menu_nav">
                     <li class="active">
-                        <a href="index.html">
+                        <a href="#">
                             Home
                         </a>
                     </li>
                     <li>
-                        <a href="about.html">
-                            About Us
+                        <a href="#">
+                            Carica foto
                         </a>
                     </li>
                     <li>
-                        <a href="services.html">
-                            Services
+                        <a href="#">
+                            Le mie foto
                         </a>
                     </li>
                     <li>
-                        <a href="portfolio.html">
-                            Portfolio
-                        </a>
-                    </li>
-                    <li>
-                        <a href="blog.html">
-                            Blog
-                        </a>
-                    </li>
-                    <li>
-                        <a href="contact.html">
-                            Contact
+                        <a href="#">
+                            Il mio Profilo
                         </a>
                     </li>
                 </ul>
@@ -90,13 +81,12 @@
 
             <!--filter menu -->
             <div class="side_menu_section">
-                <h4 class="side_title">filter by:</h4>
+                <h4 class="side_title">filtra per:</h4>
                 <ul  id="filtr-container"  class="filter_nav">
-                    <li  data-filter="*" class="active"><a href="javascript:void(0)" >all</a></li>
-                    <li data-filter=".branding"> <a href="javascript:void(0)">branding</a></li>
-                    <li data-filter=".design"><a href="javascript:void(0)">design</a></li>
-                    <li data-filter=".photography"><a href="javascript:void(0)">photography</a></li>
-                    <li data-filter=".architecture"><a href="javascript:void(0)">architecture</a></li>
+                    <li  data-filter="*" class="active"><a href="javascript:void(0)" >tutte</a></li>
+                    <li data-filter=".branding"> <a href="javascript:void(0)">top of the week</a></li>
+                    <li data-filter=".design"><a href="javascript:void(0)">top of the mounth</a></li>
+                    <li data-filter=".photography"><a href="javascript:void(0)">the best of ever</a></li>
                 </ul>
             </div>
             <!--filter menu end -->
