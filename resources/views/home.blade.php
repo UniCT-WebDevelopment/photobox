@@ -18,18 +18,12 @@
 		<h1>Benvenuto su {{ env('APP_NAME') }} <!--<img src="/images/logo.png">--></h1>
 		<div class="main-agileinfo">
 			<div class="agileits-top">
-				<form action="#" method="post">
-					<input class="text" type="text" name="Username" placeholder="Username" required="">
-					<input class="text email" type="email" name="email" placeholder="Email" required="">
-					<input class="text" type="password" name="password" placeholder="Password" required="">
-					<input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" required="">
-					<div class="wthree-text">
-						<label class="anim">
-							<input type="checkbox" class="checkbox" required="">
-							<span>Accetto i Termini e Condizioni</span>
-						</label>
-						<div class="clear"> </div>
-					</div>
+				<form action="#" method="POST">
+					<input class="text" type="text" name="nome" placeholder="Nome" required>
+					<input class="text" type="text" name="cognome" placeholder="Cognome" required>
+					<input class="text" type="text" name="username" placeholder="Username" required>
+					<input class="text email" type="email" name="email" placeholder="Email" required>
+					<input class="text" type="password" name="password" placeholder="Password" required>
 					<input type="submit" value="Registrati">
 				</form>
 				<p>Hai gi&agrave; un Account? <a href="#"> Accedi!</a></p>
