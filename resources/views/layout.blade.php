@@ -56,24 +56,16 @@
             <div class="side_menu_section">
                 <ul class="menu_nav">
                     <li class="active">
-                        <a href="#">
-                            Home
-                        </a>
+                        <a href="feed">Home</a>
                     </li>
                     <li>
-                        <a href="#">
-                            Carica foto
-                        </a>
+                        <a href="#">Carica foto</a>
                     </li>
                     <li>
-                        <a href="#">
-                            Le mie foto
-                        </a>
+                        <a href="#">Le mie foto</a>
                     </li>
                     <li>
-                        <a href="#">
-                            Il mio Profilo
-                        </a>
+                        <a href="profile">Il mio Profilo</a>
                     </li>
                 </ul>
             </div>

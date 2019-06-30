@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('home');
 });
 
+/* USER */
 Route::get('login', 'UserController@login');
+Route::get('profile', 'UserController@profile');
 
+/* FEED */
 Route::get('feed', 'FeedController@show');

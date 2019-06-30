@@ -10,4 +10,8 @@ class UserController extends Controller
         //TODO Verificare login utente
         return redirect('/feed');
     }
+
+    public function profile(Request $request) {
+        return view('user.profile');
+    }
 }

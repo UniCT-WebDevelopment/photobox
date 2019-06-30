@@ -1,5 +1,5 @@
 @extends('layout')
 
 @section('content') 
-    <h1>Bacheca</h1> 
+    <h1>Profilo</h1> 
 @endsection
