@@ -26,13 +26,13 @@
 					<input class="text" type="password" name="password" placeholder="Password" required>
 					<input type="submit" value="Registrati">
 				</form>
-				<p>Hai gi&agrave; un Account? <a href="#"> Accedi!</a></p>
+				<p>Hai gi&agrave; un Account? <a href="login"> Accedi!</a></p>
 			</div>
         </div>
         
 		<!-- copyright -->
 		<div class="colorlibcopy-agile">
-			<p>© 2019 {{ env('APP_NAME') }}. All rights reserved | Design by: {{ env('AUTHORS') }}</a></p>
+			<p>© 2019 {{ env('APP_NAME') }}. All rights reserved | Design by: {{ env('AUTHORS') }}</p>
 		</div>
         
 		<ul class="colorlib-bubbles">
