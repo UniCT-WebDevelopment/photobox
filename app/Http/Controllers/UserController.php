@@ -8,7 +8,6 @@ class UserController extends Controller
 {
     public function login(Request $request) {
         //TODO Verificare login utente
-
-        return view('feed');
+        return redirect('/feed');
     }
 }
