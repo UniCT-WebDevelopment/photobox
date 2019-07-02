@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>SocialBox</title>
+<title>PhotoBox</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <script type="application/x-javascript"> 
-        addEventListener("load", function() { 
-            setTimeout(hideURLbar, 0); }, false); 
-        function hideURLbar(){ window.scrollTo(0,1); } 
+    <script type="application/x-javascript">
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0); }, false);
+        function hideURLbar(){ window.scrollTo(0,1); }
     </script>
 
     <link href="css/login.css" rel="stylesheet" type="text/css" media="all" />
@@ -26,15 +26,15 @@
 					<input class="text" type="password" name="password" placeholder="Password" required>
 					<input type="submit" value="Registrati">
 				</form>
-				<p>Hai gi&agrave; un Account? <a href="login"> Accedi!</a></p>
+				<p>Hai gi&agrave; un Account? <a href="login"> Accedi</a></p>
 			</div>
         </div>
-        
+
 		<!-- copyright -->
 		<div class="colorlibcopy-agile">
-			<p>© 2019 {{ env('APP_NAME') }}. All rights reserved | Design by: {{ env('AUTHORS') }}</p>
+			<p>© 2019 {{ env('APP_NAME') }}. All rights reserved | Design by: {{ env('AUTHORS') }}
 		</div>
-        
+
 		<ul class="colorlib-bubbles">
 			<li></li>
 			<li></li>
