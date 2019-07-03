@@ -67,6 +67,9 @@
                     <li>
                         <a href="profile">Il mio Profilo</a>
                     </li>
+                    <li>
+                        <a href="modify">Modifica profilo</a>
+                    </li>
                 </ul>
             </div>
             <!--main menu end -->

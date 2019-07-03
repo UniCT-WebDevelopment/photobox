@@ -14,4 +14,8 @@ class UserController extends Controller
     public function profile(Request $request) {
         return view('user.profile');
     }
+
+    public function modify(Request $request) {
+        return view('user.modify');
+    }
 }

@@ -1,10 +1,11 @@
 @extends('layout')
 
-@section('content') 
+@section('content')
     <h1>Profilo</h1>
     <h6>Nome: </h6>
     <h6>Cognome: </h6>
     <h6>Username: </h6>
     <h6>Data di Nascita: </h6>
+    <h6>Bio: </h6><p>Andavo a Lione cogliendo cotone</p>
 
 @endsection
