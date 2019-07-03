@@ -32,10 +32,10 @@
 <body>
     <div class="loader">
         <div class="loader-outter"></div>
-        <div class="loader-inner"></div>
-    </div>
+    <div class="loader-inner"></div>
+</div>
 
-<div class="body-container container-fluid">
+    <div class="body-container container-fluid">
     <a class="menu-btn" href="javascript:void(0)">
         <i class="ion ion-grid"></i>
     </a>
