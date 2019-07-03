@@ -17,7 +17,7 @@
 	<div class="main-w3layouts wrapper">
 		<h1>Benvenuto su {{ env('APP_NAME') }} <!--<img src="/images/logo.png">--></h1>
 		<div class="main-agileinfo">
-			<div class="agileits-top">
+			<div class="agileits-top" id="login-form">
 				<form action="#" method="POST">
 					<input class="text" type="text" name="nome" placeholder="Nome" required>
 					<input class="text" type="text" name="cognome" placeholder="Cognome" required>
@@ -26,7 +26,7 @@
 					<input class="text" type="password" name="password" placeholder="Password" required>
 					<input type="submit" value="Registrati">
 				</form>
-				<p>Hai gi&agrave; un Account? <a href="login"> Accedi</a></p>
+				<p>Hai gi&agrave; un Account? <a href id="switch-form"> Accedi</a></p>
 			</div>
         </div>
 
@@ -48,6 +48,7 @@
 			<li></li>
 		</ul>
 	</div>
-
+	<script src="js/cocoon/jquery.min.js"></script>
+	<script src="js/login.js"></script>
 </body>
 </html>
