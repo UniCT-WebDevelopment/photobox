@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 /* USER */
 Route::get('login', 'UserController@login');
+Route::get('signin', 'UserController@signin');
 Route::get('profile', 'UserController@profile');
 Route::get('modify', 'UserController@modify');
 

@@ -1,13 +1,13 @@
 var state = 'register';
 
-var login = '<form action="login.php" method="POST">\n' +
+var login = '<form action="/login" method="POST">\n' +
     '<input class="text" type="email" name="email" placeholder="Email" required>\n' +
     '<input class="text" type="password" name="password" placeholder="Password" required>\n' +
     '<input type="submit" value="Accedi">\n' +
     '</form>\n' +
     '<p>Non hai un Account? <a href id="switch-form"> Registrati</a></p>';
 
-var register = '<form action="register.php" method="POST">\n' +
+var register = '<form action="/signin" method="POST">\n' +
     '<input class="text" type="text" name="nome" placeholder="Nome" required>\n' +
     '<input class="text" type="text" name="cognome" placeholder="Cognome" required>\n' +
     '<input class="text" type="date" name="dataNascita" placeholder="Data di nascita" required>' +

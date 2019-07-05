@@ -18,7 +18,7 @@
 		<h1>Benvenuto su {{ env('APP_NAME') }} <!--<img src="/images/logo.png">--></h1>
 		<div class="main-agileinfo">
 			<div class="agileits-top" id="login-form">
-				<form action="#" method="POST">
+				<form action="/signin" method="POST">
 					<input class="text" type="text" name="nome" placeholder="Nome" required>
 					<input class="text" type="text" name="cognome" placeholder="Cognome" required>
 					<input class="text" type="date" name="dataNascita" placeholder="Data di nascita" required>
