@@ -11,6 +11,10 @@ class UserController extends Controller
         return redirect('/feed');
     }
 
+    public function signin(Request $request) {
+        return 'ok';
+    }
+
     public function profile(Request $request) {
         return view('user.profile');
     }

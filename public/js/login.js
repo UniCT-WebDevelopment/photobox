@@ -1,37 +1,17 @@
-var state = 'register';
-
-var login = '<form action="/login" method="POST">\n' +
-    '<input class="text" type="email" name="email" placeholder="Email" required>\n' +
-    '<input class="text" type="password" name="password" placeholder="Password" required>\n' +
-    '<input type="submit" value="Accedi">\n' +
-    '</form>\n' +
-    '<p>Non hai un Account? <a href id="switch-form"> Registrati</a></p>';
-
-var register = '<form action="/signin" method="POST">\n' +
-    '<input class="text" type="text" name="nome" placeholder="Nome" required>\n' +
-    '<input class="text" type="text" name="cognome" placeholder="Cognome" required>\n' +
-    '<input class="text" type="date" name="dataNascita" placeholder="Data di nascita" required>' +
-    '<input class="text" type="text" name="username" placeholder="Username" required>\n' +
-    '<input class="text email" type="email" name="email" placeholder="Email" required>\n' +
-    '<input class="text" type="password" name="password" placeholder="Password" required>\n' +
-    '<input type="submit" value="Registrati">\n' +
-    '</form>\n' +
-    '<p>Hai gi&agrave; un Account? <a href id="switch-form"> Accedi</a></p>';
-
-function switchToLogin(e) {
+$( "#switch-form-login" ).click(function(e) {
     e.preventDefault();
-    $('form').fadeOut(300, function() {
-        $(this).remove();
-        var form = $('#login-form');
-        if(state === 'register'){
-            form.html(login);
-            state = 'login';
-        } else {
-            form.html(register);
-            state = 'register';
-        }
-        $('#switch-form').click(switchToLogin);
-    });
-}
+    $('#signin-form').addClass('hide');
+    $('#signin-form').removeClass('show');
 
-$('#switch-form').click(switchToLogin)
+    $('#login-form').addClass('show');
+    $('#login-form').removeClass('hide');
+});
+
+$( "#switch-form-signin" ).click(function(e) {
+    e.preventDefault();
+    $('#signin-form').addClass('show');
+    $('#signin-form').removeClass('hide');
+
+    $('#login-form').addClass('hide');
+    $('#login-form').removeClass('show');
+});

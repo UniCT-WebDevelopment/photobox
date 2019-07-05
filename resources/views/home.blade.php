@@ -17,8 +17,9 @@
 	<div class="main-w3layouts wrapper">
 		<h1>Benvenuto su {{ env('APP_NAME') }} <!--<img src="/images/logo.png">--></h1>
 		<div class="main-agileinfo">
-			<div class="agileits-top" id="login-form">
+			<div class="agileits-top" id="signin-form">
 				<form action="/signin" method="POST">
+					{{ csrf_field() }}
 					<input class="text" type="text" name="nome" placeholder="Nome" required>
 					<input class="text" type="text" name="cognome" placeholder="Cognome" required>
 					<input class="text" type="date" name="dataNascita" placeholder="Data di nascita" required>
@@ -27,7 +28,17 @@
 					<input class="text" type="password" name="password" placeholder="Password" required>
 					<input type="submit" value="Registrati">
 				</form>
-				<p>Hai gi&agrave; un Account? <a href id="switch-form"> Accedi</a></p>
+				<p>Hai gi&agrave; un Account? <a href id="switch-form-login"> Accedi</a></p>
+			</div>
+
+			<div class="agileits-top" id="login-form">
+				<form action="/login" method="POST">
+					{{ csrf_field() }}
+					<input class="text" type="email" name="email" placeholder="Email" required>
+					<input class="text" type="password" name="password" placeholder="Password" required>
+					<input type="submit" value="Accedi">
+    				<p>Non hai un Account? <a href id="switch-form-signin"> Registrati</a></p>
+				</form>
 			</div>
         </div>
 

@@ -787,3 +787,14 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     }
   }
 
+#login-form {
+  display: none;
+}
+
+.hide {
+  display: none!important;
+}
+
+.show {
+  display: block!important;
+}
