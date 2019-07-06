@@ -14,15 +14,12 @@ class CreateVotiTable extends Migration
     public function up()
     {
         Schema::create('voti', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->date('dataVoto');
             $table->integer('like');
             $table->bigInteger('idUtente');
             $table->bigInteger('idPhoto');
             $table->timestamps();
-
-            $table->foreign('idUtente')->references('id')->on('users');
-            $table->foreign('idPhoto')->references('id')->on('photos');
         });
     }
 
