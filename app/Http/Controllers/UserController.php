@@ -37,7 +37,7 @@ class UserController extends Controller
     }
 
     /**
-     * Verifica se esiste un utente con una data email
+     * Verifica se esiste un utente con una data email o un dato nickname
      * @param $email, $nickname
      * @return boolean true se esiste altrimenti false
      */
