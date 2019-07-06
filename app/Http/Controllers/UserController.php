@@ -20,11 +20,10 @@ class UserController extends Controller
      */
     public function signin(Request $request) {
         $input = $request->all();
-        if(!$this->checkAccountExist($input['email'])) {
+        if(!$this->checkAccountExist($input['email'], $input['nickname']) ) {
             $this->createUserAccount($input);
             return view('home', ['response' => 'success']);
         } else {
-            // Account già esistente
             return view('home', ['response' => 'fail']);
         }
     }
@@ -39,11 +38,11 @@ class UserController extends Controller
 
     /**
      * Verifica se esiste un utente con una data email
-     * @param $email
+     * @param $email, $nickname
      * @return boolean true se esiste altrimenti false
      */
-    private function checkAccountExist($email) {
-        return (User::where('email', '=', $email)->count() > 0) ? true : false;
+    private function checkAccountExist($email, $nickname) {
+        return (User::where('email', '=', $email)->orWhere('nickname', '=', $nickname)->count() > 0) ? true : false;
     }
 
     /**

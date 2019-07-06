@@ -18,6 +18,11 @@
 		<h1>Benvenuto su {{ env('APP_NAME') }} <!--<img src="/images/logo.png">--></h1>
 		<div class="main-agileinfo">
 			<div class="agileits-top" id="signin-form">
+				@if(!empty($response) && $response == 'success')
+					<p class="success">Abbiamo creato il tuo account, <br> clicca su Accedi per entrare.</p>
+				@elseif(!empty($response) && $response == 'fail')
+					<p class="error">Esiste già un utente registrato <br> con questa email o username.</p>
+				@endif
 				<form action="/signin" method="POST">
 					{{ csrf_field() }}
 					<input class="text" type="text" name="nome" placeholder="Nome" required>
