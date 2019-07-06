@@ -21,5 +21,12 @@ Route::post('signin', 'UserController@signin');
 Route::get('profile', 'UserController@profile');
 Route::get('modify', 'UserController@modify');
 
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/logout', [
+        'uses' => 'Auth\AuthController@getLogout',
+        'as' => 'logout'
+    ]);
+});
+
 /* FEED */
 Route::get('feed', 'FeedController@show');

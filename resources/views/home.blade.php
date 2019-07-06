@@ -37,6 +37,12 @@
 			</div>
 
 			<div class="agileits-top" id="login-form">
+				<p>
+    				{{ $errors->first('email') }}
+					{{ $errors->first('password') }}
+					{{ $errors->first('login_fail') }}
+				</p>
+
 				<form action="/login" method="POST">
 					{{ csrf_field() }}
 					<input class="text" type="email" name="email" placeholder="Email" required>

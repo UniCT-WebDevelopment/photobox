@@ -5,16 +5,35 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
 {
-    public function login(Request $request) {
-        //TODO Verificare login utente
-        return redirect('/feed');
+    /**
+     * Login utente
+     * 
+     * @return Redirect to login or feed page
+     */
+    public function login() {
+        $validator = $this->validateInputRules();
+        if ($validator->fails()) {
+            return Redirect::to('/')->withErrors($validator)->withInput(Input::except('password'));
+        } else {
+            $userdata = $this->getUserData();
+            if (Auth::attempt($userdata)) {
+                return Redirect::to('feed');
+            } else {
+                return Redirect::to('/')->withErrors(['login_fail'=>'Autenticazione fallita!']);
+            }
+        }
     }
 
     /**
      * Registra un nuovo utente
+     * 
      * @param $request a Request HTTP
      * @return view Home
      */
@@ -37,7 +56,33 @@ class UserController extends Controller
     }
 
     /**
-     * Verifica se esiste un utente con una data email o un dato nickname
+     * Validazione input login
+     * 
+     * @return Validator
+     */
+    private function validateInputRules() {
+        $rules = array(
+            'email'    => 'required|email',
+            'password' => 'required|alphaNum|min:1'
+        );
+        return Validator::make(Input::all(), $rules);
+    }
+
+    /**
+     * Estrare i dati utente passati dalla login form
+     * 
+     * @return array
+     */
+    private function getUserData() {
+        return array(
+            'email'     => Input::get('email'),
+            'password'  => Input::get('password')
+        );
+    }
+
+    /**
+     * Verifica se esiste un utente con una data email e/o un dato nickname
+     * 
      * @param $email, $nickname
      * @return boolean true se esiste altrimenti false
      */
@@ -47,6 +92,7 @@ class UserController extends Controller
 
     /**
      * Inserisce un utente nel DB
+     * 
      * @param $params array dei parametri dell'utente
      * @return void
      */
