@@ -23,7 +23,7 @@
 					<input class="text" type="text" name="nome" placeholder="Nome" required>
 					<input class="text" type="text" name="cognome" placeholder="Cognome" required>
 					<input class="text" type="date" name="dataNascita" placeholder="Data di nascita" required>
-					<input class="text" type="text" name="username" placeholder="Username" required>
+					<input class="text" type="text" name="nickname" placeholder="Username" required>
 					<input class="text email" type="email" name="email" placeholder="Email" required>
 					<input class="text" type="password" name="password" placeholder="Password" required>
 					<input type="submit" value="Registrati">
