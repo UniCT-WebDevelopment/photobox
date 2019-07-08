@@ -47,7 +47,7 @@
             <div id="colorlib-aside" class="logo_box">
                 <h1 id="colorlib-logo">
                     <span class="img" style="background-image: url(images/users/author.jpg);"></span>
-                    <a href="#">Mario Piazza</a>
+                    <a href="#">@yield('nome_utente')</a>
                 </h1>
             </div>
             <!-- profile photo end-->
