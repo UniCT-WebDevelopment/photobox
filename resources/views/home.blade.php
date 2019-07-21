@@ -15,7 +15,7 @@
 </head>
 <body>
 	<div class="main-w3layouts wrapper">
-		<h1>Benvenuto su {{ env('APP_NAME') }} <!--<img src="/images/logo.png">--></h1>
+		<img src="/images/logo.svg">
 		<div class="main-agileinfo">
 			<div class="agileits-top" id="signin-form">
 				@if(!empty($response) && $response == 'success')
