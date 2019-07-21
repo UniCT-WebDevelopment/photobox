@@ -15,7 +15,7 @@
 </head>
 <body>
 	<div class="main-w3layouts wrapper">
-		<img src="/images/logo.svg">
+		<img src="/images/logo.svg" class="">
 		<div class="main-agileinfo">
 			<div class="agileits-top" id="signin-form">
 				@if(!empty($response) && $response == 'success')

@@ -48,7 +48,8 @@ class UserController extends Controller
     }
 
     public function profile(Request $request) {
-        return view('user.profile');
+        $user = Auth::user();
+        return view('user.profile', ['user' => $user]);
     }
 
     public function modify(Request $request) {
