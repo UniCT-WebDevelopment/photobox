@@ -1,29 +1,43 @@
-@extends('layout')
+@extends('layout') 
+
+@section('nome_utente') 
+    {{ $user->nome }} {{ $user->cognome }} 
+@endsection 
 
 @section('content')
-    <head>
-        <link href="css/login.css" rel="stylesheet" type="text/css" media="all" />
-    </head>
 
-    <body>
-    <h1>Modifica dati profilo</h1>
-    <div class="main-w3layouts wrapper">
-        <div class="main-agileinfo">
-            <div class="agileits-top" id="login-form">
-                <form action="#" method="POST">
-                    <input class="text" type="text" name="nome" placeholder="Nome" required>
-                    <input class="text" type="text" name="cognome" placeholder="Cognome" required>
-                    <input class="text" type="date" name="dataNascita" placeholder="Data di nascita" required>
-                    <!--<input class="text" type="text" name="username" placeholder="Username" required>-->
-                    <input class="text email" type="email" name="email" placeholder="Email" required>
-                    <input class="text" type="password" name="password" placeholder="Password" required>
-                    <input class="text" type="password" name="passwordControllo" placeholder="Ripeti Password" required>
-                    <input type="submit" value="Modifica">
-                </form>
-            </div>
+<h1>Modifica profilo</h1>
+<form action="#" method="POST">
+    <div class="mt50 row justify-content-center">
+        <div class="col-md-4 col-12">
+            <input class="form-control" type="text" name="nome" placeholder="Nome" autocomplete="off" required>
+        </div>
+        <div class="col-md-4 col-12">
+            <input class="form-control" type="text" name="cognome" placeholder="Cognome" autocomplete="off" required>
+        </div>
+        <div class="col-md-4 col-12">
+            <input class="form-control" type="date" name="dataNascita" placeholder="Data di nascita" required>
+        </div>  
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <textarea  placeholder="Biografia" class="form-control" cols="4" rows="3"></textarea>
         </div>
     </div>
 
-    </body>
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-12">
+            <input class="form-control" type="password" name="password" placeholder="Password" autocomplete="off">
+        </div>       
+        <div class="col-lg-6 col-12">
+                <input class="form-control" type="password" name="passwordControllo" placeholder="Ripeti Password" autocomplete="off">
+        </div>
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-primary">Modifica</button>
+    </div>
+</form>
 
 @endsection

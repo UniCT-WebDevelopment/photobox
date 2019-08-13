@@ -53,7 +53,8 @@ class UserController extends Controller
     }
 
     public function modify(Request $request) {
-        return view('user.modify');
+        $user = Auth::user();
+        return view('user.modify', ['user' => $user]);
     }
 
     /**
