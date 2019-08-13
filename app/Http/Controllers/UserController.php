@@ -105,6 +105,7 @@ class UserController extends Controller
         $user->nickname = $params['nickname'];
         $user->email = $params['email'];
         $user->password = Hash::make($params['password']);
+        $user->bio = "";
 
         $user->save();
         return;
