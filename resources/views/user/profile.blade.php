@@ -1,5 +1,9 @@
 @extends('layout')
 
+@section('nome_utente')
+    {{ $user->nome }} {{ $user->cognome }}
+@endsection
+
 @section('content')
     <h1>Profilo</h1>
     <h6><strong>Nome</strong>: {{ $user->nome }}</h6>
@@ -10,6 +14,10 @@
    
     <div class="section_content mt30">
         <a href="/modify" class="btn btn-primary-outline">Modifica Profilo</a>
-        <a href="/modifyPhoto" class="btn btn-primary-outline">Cambia Foto</a>
+        <a href="/modifyProfilePhoto" class="btn btn-primary-outline">Cambia Foto</a>
+    </div>
+
+    <div class="section_content mt30">
+        <h4>Statistiche foto</h4>
     </div>
 @endsection
