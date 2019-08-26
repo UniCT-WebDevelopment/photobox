@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->date('dataNascita');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('bio');
+            $table->string('bio')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
