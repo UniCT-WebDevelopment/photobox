@@ -27,10 +27,10 @@
     </div>
 
     <div class="row justify-content-center">
-        <div class="col-lg-6 col-12">
+        <div class="col-md-6 col-12">
             <input class="form-control" type="password" name="password" placeholder="Password" autocomplete="off">
         </div>       
-        <div class="col-lg-6 col-12">
+        <div class="col-md-6 col-12">
                 <input class="form-control" type="password" name="passwordControllo" placeholder="Ripeti Password" autocomplete="off">
         </div>
     </div>
