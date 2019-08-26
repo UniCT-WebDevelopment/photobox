@@ -13,20 +13,14 @@
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('login');
 
 /* USER */
 Route::post('login', 'UserController@login');
 Route::post('signin', 'UserController@signin');
-Route::get('profile', 'UserController@profile');
-Route::get('modify', 'UserController@modify');
-
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/logout', [
-        'uses' => 'Auth\AuthController@getLogout',
-        'as' => 'logout'
-    ]);
-});
+Route::get('logout', 'UserController@logout')->middleware('auth');
+Route::get('profile', 'UserController@profile')->middleware('auth');
+Route::get('modify', 'UserController@modify')->middleware('auth');
 
 /* FEED */
 Route::get('feed', 'FeedController@show');

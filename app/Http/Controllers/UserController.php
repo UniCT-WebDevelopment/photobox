@@ -47,6 +47,16 @@ class UserController extends Controller
         }
     }
 
+    /**
+     * Esegue il logout
+     * 
+     * @return Redirect to view Home
+     */
+    public function logout() {
+        Auth::logout();
+        return redirect('/');
+    }
+
     public function profile(Request $request) {
         $user = Auth::user();
         return view('user.profile', ['user' => $user]);
