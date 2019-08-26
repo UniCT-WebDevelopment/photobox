@@ -123,29 +123,24 @@ class UserController extends Controller
     }
 
     /**
-     * Verifica se esiste un utente con una data email e/o un dato nickname
+     * Modifica le informazioni di un utente
      *
-     * @param $email, $nickname
-     * @return boolean true se esiste altrimenti false
+     * @param Request $request
+     * @return Redirect alla view profile in caso di successo, altrimenti alla view modify
      */
     public function editProfile(Request $request) {
         $input = $request->all();
         $user = Auth::user();
-        if(empty($input['password'])){
-            $user->nome = $input['nome'];
-            $user->cognome = $input['cognome'];
-            $user->dataNascita = $input['dataNascita'];
-            $user->bio = $input['bio'];
+
+        $user->nome = $input['nome'];
+        $user->cognome = $input['cognome'];
+        $user->dataNascita = $input['dataNascita'];
+        $user->bio = $input['bio'];
+
+        if(!empty($input['password']) && $input['password'] == $input['passwordControllo']) {
+            $user->password = Hash::make($input['password']);
         } else {
-            if(($input['password']) == ($input['passwordControllo'])) {
-                $user->nome = $input['nome'];
-                $user->cognome = $input['cognome'];
-                $user->dataNascita = $input['dataNascita'];
-                $user->bio = $input['bio'];
-                $user->password = Hash::make($input['bio']);
-            } else {
-                return redirect('modify');
-            }
+            return redirect('modify');
         }
         $user->save();
         return redirect('profile');
