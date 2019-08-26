@@ -9,6 +9,7 @@
     <h6><strong>Nome</strong>: {{ $user->nome }}</h6>
     <h6><strong>Cognome</strong>: {{ $user->cognome }}</h6>
     <h6><strong>Username</strong>: {{ $user->nickname }}</h6>
+    <h6><strong>eMail</strong>: {{ $user->email }}</h6>
     <h6><strong>Data di Nascita</strong>: {{ date('d-m-Y', strtotime($user->dataNascita)) }}</h6>
     <h6><strong>Biografia</strong>: {{ $user->bio }}</h6>
    
@@ -18,6 +19,6 @@
     </div>
 
     <div class="section_content mt30">
-        <h4>Statistiche foto</h4>
+        <h4>Statistiche Foto</h4>
     </div>
 @endsection
