@@ -111,4 +111,33 @@ class UserController extends Controller
         $user->save();
         return;
     }
+
+    /**
+     * Verifica se esiste un utente con una data email e/o un dato nickname
+     *
+     * @param $email, $nickname
+     * @return boolean true se esiste altrimenti false
+     */
+    public function editProfile(Request $request) {
+        $input = $request->all();
+        $user = Auth::user();
+        if(empty($input['password'])){
+            $user->nome = $input['nome'];
+            $user->cognome = $input['cognome'];
+            $user->dataNascita = $input['dataNascita'];
+            $user->bio = $input['bio'];
+        } else {
+            if(($input['password']) == ($input['passwordControllo'])) {
+                $user->nome = $input['nome'];
+                $user->cognome = $input['cognome'];
+                $user->dataNascita = $input['dataNascita'];
+                $user->bio = $input['bio'];
+                $user->password = Hash::make($input['bio']);
+            } else {
+                return redirect('modify');
+            }
+        }
+        $user->save();
+        return redirect('profile');
+    }
 }

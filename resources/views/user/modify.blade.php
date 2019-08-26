@@ -8,21 +8,22 @@
 
 <h1>Modifica profilo</h1>
 <form action="#" method="POST">
+    {{ csrf_field() }}
     <div class="mt50 row justify-content-center">
         <div class="col-md-4 col-12">
-            <input class="form-control" type="text" name="nome" placeholder="Nome" autocomplete="off" required>
+            <input class="form-control" type="text" name="nome" placeholder="Nome" autocomplete="off" value="{{ $user->nome }}" required>
         </div>
         <div class="col-md-4 col-12">
-            <input class="form-control" type="text" name="cognome" placeholder="Cognome" autocomplete="off" required>
+            <input class="form-control" type="text" name="cognome" placeholder="Cognome" autocomplete="off" value="{{ $user->cognome }}" required>
         </div>
         <div class="col-md-4 col-12">
-            <input class="form-control" type="date" name="dataNascita" placeholder="Data di nascita" required>
+            <input class="form-control" type="date" name="dataNascita" placeholder="Data di nascita" value="{{ $user->dataNascita }}" required>
         </div>  
     </div>
 
     <div class="row justify-content-center">
         <div class="col-12">
-            <textarea  placeholder="Biografia" class="form-control" cols="4" rows="3"></textarea>
+            <textarea  placeholder="Biografia" class="form-control" name="bio" cols="4" rows="3">{{ $user->bio }}</textarea>
         </div>
     </div>
 

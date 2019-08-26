@@ -20,6 +20,7 @@ Route::post('login', 'UserController@login');
 Route::post('signin', 'UserController@signin');
 Route::get('profile', 'UserController@profile');
 Route::get('modify', 'UserController@modify');
+Route::post('modify', 'UserController@editProfile');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/logout', [
