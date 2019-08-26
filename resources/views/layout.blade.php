@@ -68,7 +68,7 @@
                         <a href="profile">Il mio Profilo</a>
                     </li>
                     <li>
-                        <a href="modify">Modifica profilo</a>
+                        <a href="logout">Esci</a>
                     </li>
                 </ul>
             </div>
