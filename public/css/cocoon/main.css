@@ -1752,7 +1752,7 @@ img {
 3 body
 -------------------------------------------------------- */
 .body_block {
-  background-color: #fefefe;
+  background-color: #fafafa;
   padding: 50px 30px;
 }
 
@@ -2011,7 +2011,7 @@ img {
   background-color: rgba(0, 0, 0, 0.7);
   -webkit-transition: all ease-in-out 0.4s;
   transition: all ease-in-out 0.4s;
-  opacity: 0;
+  opacity: 0;oppop0i9j
 }
 .project_box_one .product_info .product_info_text {
   display: table;
@@ -2528,3 +2528,45 @@ textarea.form-control {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center; }
+
+/*  ----------------------------------------------------
+13 class photo
+-------------------------------------------------------- */
+
+.photo-container{
+  background-color: #fafafa;
+  border: 1px solid #dddddd;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.photo-user{
+  font-size: 17px;
+  margin-top: 2px;
+}
+
+.photo-border{
+  margin-bottom: 5px;
+  border-bottom: 1px solid #dddddd;
+}
+
+.photo-icons{
+  font-size: 17px;
+  margin-top: 4px;
+  border-bottom: 1px solid #dddddd;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.photo-container-description{
+  min-height: 120px;
+}
+
+.photo-description{
+  display: inline-block;
+  font-size: 15px;
+  line-height: 1.4;
+  margin-top: 10px;
+}
