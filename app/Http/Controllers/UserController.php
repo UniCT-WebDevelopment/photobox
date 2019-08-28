@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\File;
 
 class UserController extends Controller
 {
@@ -41,6 +42,8 @@ class UserController extends Controller
         $input = $request->all();
         if(!$this->checkAccountExist($input['email'], $input['nickname']) ) {
             $this->createUserAccount($input);
+            $this->createFolderProfilePhoto($input['email']);
+            $this->createFolderFeedPhoto($input['email']);
             return view('home', ['response' => 'success']);
         } else {
             return view('home', ['response' => 'fail']);
@@ -152,5 +155,39 @@ class UserController extends Controller
         }
         $user->save();
         return redirect('profile');
+    }
+
+    /**
+     * Restituisce l'ID di un utente cercato per email
+     * 
+     * @param String $email la mail dell'utente cercato
+     * @return Integer l'ID dell'utente trovato
+     */
+    public function getUserIdByEmail($email) {
+        return (User::where('email', '=', $email)->value('id'));
+    }
+
+    /**
+     * Crea la directory per la foto profilo utente
+     * 
+     * @param $email la email dell'utente
+     * @return File la directory creata
+     */
+    private function createFolderProfilePhoto($email) {
+        $userID = $this->getUserIdByEmail($email);
+        $path = public_path().'/users/profile/' . $userID;
+        return File::makeDirectory($path, 0644, true, true);
+    }
+
+    /**
+     * Crea la directory per le foto del feed utente
+     * 
+     * @param $email la email dell'utente
+     * @return File la directory creata
+     */
+    private function createFolderFeedPhoto($email) {
+        $userID = $this->getUserIdByEmail($email);
+        $path = public_path().'/users/feed/' . $userID;
+        return File::makeDirectory($path, 0644, true, true);
     }
 }
