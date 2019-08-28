@@ -57,14 +57,22 @@ class UserController extends Controller
         return redirect('/');
     }
 
-    public function profile(Request $request) {
-        $user = Auth::user();
-        return view('user.profile', ['user' => $user]);
+    /**
+     * Mostra la view Profilo Utente
+     * 
+     * @return view profile
+     */
+    public function profile() {
+        return view('user.profile', ['user' => Auth::user()]);
     }
 
-    public function modify(Request $request) {
-        $user = Auth::user();
-        return view('user.modify', ['user' => $user]);
+    /**
+     * Mostra la view Modifica Utente
+     * 
+     * @return view modify
+     */
+    public function modify() {
+        return view('user.modify', ['user' => Auth::user()]);
     }
 
     /**
@@ -81,7 +89,7 @@ class UserController extends Controller
     }
 
     /**
-     * Estrare i dati utente passati dalla login form
+     * Estrae i dati utente passati dalla login form
      * 
      * @return array
      */
@@ -103,7 +111,7 @@ class UserController extends Controller
     }
 
     /**
-     * Inserisce un utente nel DB
+     * Crea un nuovo utente
      * 
      * @param $params array dei parametri dell'utente
      * @return void
