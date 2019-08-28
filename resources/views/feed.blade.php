@@ -108,6 +108,78 @@
             </div>
             <!-- Photo End-->
 
+            <!-- Photo Start-->
+            <div class="col-md-3">
+                <div class="photo-container">
+                    <div class="row photo-user">
+                        <div class="col-md-8">
+                            {{ $user->nickname }}
+                        </div>
+                        <div class="col-md-4 text-right">
+                            28/08/2019
+                        </div>
+                    </div>
+                    <div class="photo-border"></div>
+                    <img src="images/cocoon/portfolio/home-port5.png" alt="cocoon">
+                    <div class="photo-icons">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <i class="fa fa-thumbs-up"></i>&nbsp;+1
+                            </div>
+                            <div class="col-md-4">
+                                <i class="fa fa-thumbs-down"></i>&nbsp;-1
+                            </div>
+                            <div class="col-md-4 text-md-left">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;Position
+                            </div>
+                        </div>
+                    </div>
+                    <div class="photo-container-description">
+                        <span class="photo-description">
+                            Configuration and logfile names: If the filenames you specify for many
+                            Configuration and logfile names: If the filenames you specify for many
+                            Configuration and logfile names:
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!-- Photo End-->
+
+            <!-- Photo Start-->
+            <div class="col-md-3">
+                <div class="photo-container">
+                    <div class="row photo-user">
+                        <div class="col-md-8">
+                            {{ $user->nickname }}
+                        </div>
+                        <div class="col-md-4 text-right">
+                            28/08/2019
+                        </div>
+                    </div>
+                    <div class="photo-border"></div>
+                    <img src="images/cocoon/portfolio/home-port6.png" alt="cocoon">
+                    <div class="photo-icons">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <i class="fa fa-thumbs-up"></i>&nbsp;+1
+                            </div>
+                            <div class="col-md-4">
+                                <i class="fa fa-thumbs-down"></i>&nbsp;-1
+                            </div>
+                            <div class="col-md-4 text-md-left">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;Position
+                            </div>
+                        </div>
+                    </div>
+                    <div class="photo-container-description">
+                        <span class="photo-description">
+                            Configuration and logfile names: If the filenames you specify for many
+                            Configuration and lo
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!-- Photo End-->
         </div>
     </div>
 @endsection

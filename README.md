@@ -36,7 +36,7 @@ Nella sezione privata l'utente visualizzerà qualche indice statistico su come s
 
 Template: https://colorlib.com/preview/#cocoon
 
-[Icon] Repo icone: https://www.flaticon.com/
+~~[Icon] Repo icone: https://www.flaticon.com/~~
 
 [PHP] EXIF: https://www.php.net/manual/en/book.exif.php
 
@@ -49,3 +49,5 @@ Template: https://colorlib.com/preview/#cocoon
 [Laravel] Upload Image and Crop: https://artisansweb.net/how-to-upload-and-crop-image-in-laravel-using-imgareaselect-intervention-image-library/
 
 [JS] Libreria grafici: https://www.chartjs.org/
+
+[HTML5] Upload drag and drop: https://css-tricks.com/drag-and-drop-file-uploading/
