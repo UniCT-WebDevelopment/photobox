@@ -8,13 +8,10 @@
 
     <link href="css/cocoon/main.css" rel="stylesheet" type="text/css" media="all" />
     <link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i" rel="stylesheet">
-
-    <div class="section_content mt30">
-        <h3>Cambia foto profilo</h3>
-    </div>
+    <h1>Cambia foto profilo</h1>
 
     <form id="upload" action="#" method="POST" enctype="multipart/form-data">
-
+        {{ csrf_field() }}
         <fieldset>
 
             <input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="300000" />
