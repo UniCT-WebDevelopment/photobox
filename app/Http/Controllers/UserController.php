@@ -150,7 +150,8 @@ class UserController extends Controller
                 $this->editUserInfo($user, $input);
                 $this->changeUserPassword($user, $input);
             } else {
-                return redirect('modify');
+                //return redirect('modify');
+                return view('user.modify', ['response' => 'fail'], ['user' => Auth::user()]);
             }
         } else { // Modifica solo info dell'utente
             $this->editUserInfo($user, $input);

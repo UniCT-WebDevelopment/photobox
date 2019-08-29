@@ -7,6 +7,9 @@
 @section('content')
 
 <h1>Modifica profilo</h1>
+@if(!empty($response) && $response == 'fail')
+	<p class="error">Le password non coincidono.</p>
+@endif
 <form action="#" method="POST">
     {{ csrf_field() }}
     <div class="mt50 row justify-content-center">

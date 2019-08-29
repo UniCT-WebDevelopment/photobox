@@ -2741,3 +2741,13 @@ textarea.form-control {
     line-height: 1.4;
     margin-top: 10px;
 }
+
+
+/*  ----------------------------------------------------
+14 class user profile
+-------------------------------------------------------- */
+
+.error {
+    color: #ef1414!important;
+    font-weight: bolder!important;
+}
