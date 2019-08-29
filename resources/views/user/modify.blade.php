@@ -40,5 +40,8 @@
         <button type="submit" class="btn btn-primary">Modifica</button>
     </div>
 </form>
+@if(!empty($response) && $response == 'fail')
+	<p class="error">Le password non coincidono.</p>
+@endif
 
 @endsection

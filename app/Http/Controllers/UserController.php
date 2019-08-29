@@ -16,7 +16,7 @@ class UserController extends Controller
     /**
      * Login utente
      * 
-     * @return Redirect to login or feed page
+     * @return Redirect alla view login o profile
      */
     public function login() {
         $validator = $this->validateInputRules();
@@ -35,7 +35,7 @@ class UserController extends Controller
     /**
      * Registra un nuovo utente
      * 
-     * @param $request a Request HTTP
+     * @param Request $request una Request HTTP
      * @return view Home
      */
     public function signin(Request $request) {
@@ -53,7 +53,7 @@ class UserController extends Controller
     /**
      * Esegue il logout
      * 
-     * @return Redirect to view Home
+     * @return Redirect alla view Home
      */
     public function logout() {
         Auth::logout();
@@ -115,7 +115,8 @@ class UserController extends Controller
     /**
      * Verifica se esiste un utente con una data email e/o un dato nickname
      * 
-     * @param $email, $nickname
+     * @param String $email la mail dell'utente
+     * @param String $nickname il nickname dell'utente
      * @return boolean true se esiste altrimenti false
      */
     private function checkAccountExist($email, $nickname) {
@@ -125,7 +126,7 @@ class UserController extends Controller
     /**
      * Crea un nuovo utente
      * 
-     * @param $params array dei parametri dell'utente
+     * @param Array $params array dei parametri dell'utente
      * @return void
      */
     private function createUserAccount($params) {
@@ -143,27 +144,57 @@ class UserController extends Controller
     }
 
     /**
-     * Modifica le informazioni di un utente
+     * Modifica le informazioni e/o la password di un utente
      *
-     * @param Request $request
+     * @param Request $request una Request HTTP
      * @return Redirect alla view profile in caso di successo, altrimenti alla view modify
      */
     public function editProfile(Request $request) {
         $input = $request->all();
         $user = Auth::user();
 
+        // Modifica info e password dell'utente
+        if(!empty($input['password'])) {
+            if($input['password'] == $input['passwordControllo']) {
+                $this->editUserInfo($user, $input);
+                $this->changeUserPassword($user, $input);
+            } else {
+                //return redirect('modify');
+                return view('user.modify', ['response' => 'fail'], ['user' => Auth::user()]);
+            }
+        } else { // Modifica solo info dell'utente
+            $this->editUserInfo($user, $input);
+        }
+        return redirect('profile');
+    }
+
+    /**
+     * Modifica le informazioni di un utente
+     * 
+     * @param User $user il Model dell'utente
+     * @param Array $input l'array che contiene i dati da front-end
+     * @return void
+     */
+    private function editUserInfo($user, $input) {
         $user->nome = $input['nome'];
         $user->cognome = $input['cognome'];
         $user->dataNascita = $input['dataNascita'];
         $user->bio = $input['bio'];
-
-        if(!empty($input['password']) && $input['password'] == $input['passwordControllo']) {
-            $user->password = Hash::make($input['password']);
-        } else {
-            return redirect('modify');
-        }
         $user->save();
-        return redirect('profile');
+        return;
+    }
+
+    /**
+     * Modifica la password di un utente
+     * 
+     * @param User $user il Model dell'utente
+     * @param Array $input l'array che contiene i dati da front-end
+     * @return void
+     */
+    private function changeUserPassword($user, $input) {
+        $user->password = Hash::make($input['password']);
+        $user->save();
+        return;
     }
 
     /**
@@ -179,7 +210,7 @@ class UserController extends Controller
     /**
      * Crea la directory per la foto profilo utente
      * 
-     * @param $email la email dell'utente
+     * @param String $email la email dell'utente
      * @return File la directory creata
      */
     private function createFolderProfilePhoto($email) {
@@ -191,7 +222,7 @@ class UserController extends Controller
     /**
      * Crea la directory per le foto del feed utente
      * 
-     * @param $email la email dell'utente
+     * @param String $email la email dell'utente
      * @return File la directory creata
      */
     private function createFolderFeedPhoto($email) {
