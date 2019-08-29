@@ -71,11 +71,20 @@ class UserController extends Controller
 
     /**
      * Mostra la view Modifica Utente
-     * 
+     *
      * @return view modify
      */
     public function modify() {
         return view('user.modify', ['user' => Auth::user()]);
+    }
+
+    /**
+     * Mostra la view Modifica Foto Profilo
+     *
+     * @return view modifyProfilePhoto
+     */
+    public function modifyProfilePhoto() {
+        return view('user.modifyProfilePhoto', ['user' => Auth::user()]);
     }
 
     /**

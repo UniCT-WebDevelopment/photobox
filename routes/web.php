@@ -22,6 +22,7 @@ Route::get('logout', 'UserController@logout')->middleware('auth');
 Route::get('profile', 'UserController@profile')->middleware('auth');
 Route::get('modify', 'UserController@modify')->middleware('auth');
 Route::post('modify', 'UserController@editProfile')->middleware('auth');
+Route::get('modifyProfilePhoto', 'UserController@modifyProfilePhoto')->middleware('auth');
 
 /* FEED */
 Route::get('feed', 'FeedController@show');
