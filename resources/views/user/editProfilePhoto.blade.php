@@ -5,9 +5,7 @@
 @endsection
 
 @section('content')
-
-    <link href="css/cocoon/main.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i" rel="stylesheet">
+    
     <h1>Cambia foto profilo</h1>
 
     <form id="upload" action="#" method="POST" enctype="multipart/form-data">
@@ -38,4 +36,5 @@
     <script type="text/javascript" src="js/cocoon/dragDrop.js">
         console.log("File Not Found");
     </script>
+
 @endsection
