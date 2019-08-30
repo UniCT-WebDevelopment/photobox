@@ -15,14 +15,18 @@ Route::get('/', function () {
     return view('home');
 })->name('login');
 
-/* USER */
+/** USER **/
 Route::post('login', 'UserController@login');
 Route::post('signin', 'UserController@signin');
 Route::get('logout', 'UserController@logout')->middleware('auth');
-Route::get('profile', 'UserController@profile')->middleware('auth');
-Route::get('modify', 'UserController@modify')->middleware('auth');
-Route::post('modify', 'UserController@editProfile')->middleware('auth');
-Route::get('modifyProfilePhoto', 'UserController@modifyProfilePhoto')->middleware('auth');
 
-/* FEED */
+Route::get('profile', 'UserController@profile')->middleware('auth');
+
+Route::get('editProfileInfo', 'UserController@editProfileInfoView')->middleware('auth');
+Route::post('editProfileInfo', 'UserController@editProfileInfo')->middleware('auth');
+
+Route::get('editProfilePhoto', 'UserController@editProfilePhotoView')->middleware('auth');
+Route::post('editProfilePhoto', 'UserController@editProfilePhoto')->middleware('auth');
+
+/** FEED **/
 Route::get('feed', 'FeedController@show');

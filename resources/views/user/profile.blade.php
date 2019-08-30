@@ -14,8 +14,8 @@
     <h6><strong>Biografia</strong>: {{ $user->bio }}</h6>
    
     <div class="section_content mt30">
-        <a href="/modify" class="btn btn-primary-outline">Modifica Profilo</a>
-        <a href="/modifyProfilePhoto" class="btn btn-primary-outline">Cambia Foto</a>
+        <a href="/editProfileInfo" class="btn btn-primary-outline">Modifica Profilo</a>
+        <a href="/editProfilePhoto" class="btn btn-primary-outline">Cambia Foto</a>
     </div>
 
     <div class="section_content mt30">

@@ -72,19 +72,19 @@ class UserController extends Controller
     /**
      * Mostra la view Modifica Utente
      *
-     * @return view modify
+     * @return view editProfileInfo
      */
-    public function modify() {
-        return view('user.modify', ['user' => Auth::user()]);
+    public function editProfileInfoView() {
+        return view('user.editProfileInfo', ['user' => Auth::user()]);
     }
 
     /**
      * Mostra la view Modifica Foto Profilo
      *
-     * @return view modifyProfilePhoto
+     * @return view editProfilePhotoView
      */
-    public function modifyProfilePhoto() {
-        return view('user.modifyProfilePhoto', ['user' => Auth::user()]);
+    public function editProfilePhotoView() {
+        return view('user.editProfilePhoto', ['user' => Auth::user()]);
     }
 
     /**
@@ -149,7 +149,7 @@ class UserController extends Controller
      * @param Request $request una Request HTTP
      * @return Redirect alla view profile in caso di successo, altrimenti alla view modify
      */
-    public function editProfile(Request $request) {
+    public function editProfileInfo(Request $request) {
         $input = $request->all();
         $user = Auth::user();
 
