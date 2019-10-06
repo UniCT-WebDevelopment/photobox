@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layout', ['user' => $user])
 
 @section('nome_utente')
     {{ $user->nome }} {{ $user->cognome }}

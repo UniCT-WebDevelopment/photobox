@@ -1,8 +1,4 @@
-@extends('layout')
-
-@section('nome_utente')
-{{ $user->nome }} {{ $user->cognome }}
-@endsection
+@extends('layout', ['user' => $user])
 
 @section('content')
 <h1>Cambia foto profilo</h1>

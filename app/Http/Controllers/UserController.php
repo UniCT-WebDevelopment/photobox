@@ -89,7 +89,7 @@ class UserController extends Controller
     }
 
     /**
-     * Mostra la view Modifica Foto Profilo
+     *  Modifica Foto Profilo
      *
      * @return view editProfilePhotoView
      */
