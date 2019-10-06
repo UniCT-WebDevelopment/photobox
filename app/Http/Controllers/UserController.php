@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\File;
+use Illuminate\Http\Response;
 
 class UserController extends Controller
 {
@@ -42,8 +43,8 @@ class UserController extends Controller
         $input = $request->all();
         if(!$this->checkAccountExist($input['email'], $input['nickname']) ) {
             $this->createUserAccount($input);
-            $this->createFolderProfilePhoto($input['email']);
-            $this->createFolderFeedPhoto($input['email']);
+            // $this->createFolderProfilePhoto($input['email']);
+            // $this->createFolderFeedPhoto($input['email']);
             return view('home', ['response' => 'success']);
         } else {
             return view('home', ['response' => 'fail']);
@@ -85,6 +86,33 @@ class UserController extends Controller
      */
     public function editProfilePhotoView() {
         return view('user.editProfilePhoto', ['user' => Auth::user()]);
+    }
+
+    /**
+     * Mostra la view Modifica Foto Profilo
+     *
+     * @return view editProfilePhotoView
+     */
+    public function editProfilePhoto(Request $request) {
+        $user = Auth::user();
+        $extension = $request->file->getClientOriginalExtension();
+        
+        $fileName = sha1(time().time()).".{$extension}";
+
+        $rules = array(
+            'file' => 'image'
+        );
+        $validation = Validator::make(Input::all(), $rules);
+        if ($validation->fails()) {
+            return response()->json(['error' => $validation->errors()->getMessages()], 400);
+		}
+        
+        $request->file->storeAs('public/users/profile/'.$user->id.'/', $fileName);
+  
+        $user->imgProfilo = $fileName;
+        $user->save();
+  
+        return redirect('profile'); 
     }
 
     /**
@@ -213,11 +241,11 @@ class UserController extends Controller
      * @param String $email la email dell'utente
      * @return File la directory creata
      */
-    private function createFolderProfilePhoto($email) {
-        $userID = $this->getUserIdByEmail($email);
-        $path = public_path().'/users/profile/' . $userID;
-        return File::makeDirectory($path, 0644, true, true);
-    }
+    // private function createFolderProfilePhoto($email) {
+    //     $userID = $this->getUserIdByEmail($email);
+    //     $path = public_path().'/users/profile/' . $userID;
+    //     return File::makeDirectory($path, 0644, true, true);
+    // }
 
     /**
      * Crea la directory per le foto del feed utente
@@ -225,9 +253,9 @@ class UserController extends Controller
      * @param String $email la email dell'utente
      * @return File la directory creata
      */
-    private function createFolderFeedPhoto($email) {
-        $userID = $this->getUserIdByEmail($email);
-        $path = public_path().'/users/feed/' . $userID;
-        return File::makeDirectory($path, 0644, true, true);
-    }
+    // private function createFolderFeedPhoto($email) {
+    //     $userID = $this->getUserIdByEmail($email);
+    //     $path = public_path().'/users/feed/' . $userID;
+    //     return File::makeDirectory($path, 0644, true, true);
+    // }
 }

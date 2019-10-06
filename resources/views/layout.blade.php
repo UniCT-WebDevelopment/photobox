@@ -28,6 +28,10 @@
     <link rel="stylesheet" href="css/cocoon/animate.min.css">
     <!-- Custom styles for this template -->
     <link href="css/cocoon/main.css" rel="stylesheet">
+    <!-- Dropzone CSS -->
+    <link href="css/cocoon/dropzone.css" rel="stylesheet">
+    <!-- Cropper CSS -->
+    <link href="https://unpkg.com/cropperjs/dist/cropper.css" rel="stylesheet"/>
 </head>
 
 <body>
@@ -47,8 +51,9 @@
                 <!-- profile photo -->
                 <div id="colorlib-aside" class="logo_box">
                     <h1 id="colorlib-logo">
-                        <span class="img" style="background-image: url(images/users/author.jpg);"></span>
-                        <a href="#">@yield('nome_utente')</a>
+                        @yield('photoProfile')
+                        <span class="img" style="background-image: url(images/users/default.png);"></span>
+                        <a href="/profile">@yield('nome_utente')</a>
                     </h1>
                 </div>
                 <!-- profile photo end-->
@@ -133,7 +138,7 @@
     <!-- WOW JS -->
     <script src="js/cocoon/wow.min.js"></script>
 
-    <!-- Custom js -->
+    <!-- Custom JS -->
     <script src="js/cocoon/main.js"></script>
 </body>
 
