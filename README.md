@@ -51,3 +51,7 @@ Template: https://colorlib.com/preview/#cocoon
 [JS] Libreria grafici: https://www.chartjs.org/
 
 [HTML5] Upload drag and drop: https://css-tricks.com/drag-and-drop-file-uploading/
+
+**Setup Applicazione**
+
+* Lanciare: php artisan storage:link
