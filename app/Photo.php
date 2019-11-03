@@ -14,7 +14,7 @@ class Photo extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'descrizione', 'GPS', 'dataCaricamento', 'idUtente',
+        'nome', 'descrizione', 'GPS', 'dataCaricamento', 'idUtente',
     ];
 
 }

@@ -1,5 +1,8 @@
 <div id="dropzone">
-    <form id="myDropzone" class="dropzone needsclick" action="/editProfilePhoto">
+    <form id="myDropzone" class="dropzone needsclick" action="/{{$pathUpload}}">
+        @if($pathUpload == 'feedUploadPhoto')
+            <input type="text" name="descrizione" id="descrizione" class="form-control" placeholder="Descrizione foto..." autocomplete="off">
+        @endif
         {{ csrf_field() }}
     </form>
 </div>
@@ -12,11 +15,10 @@
         init: function() {
             this.on("success", function(files, response) {
                 if(response === 'success') {
-                    this.on("success", window.setTimeout("window.location.href='/profile'", 1000));
+                    this.on("success", window.setTimeout("window.location.href='/{{$pathToReturn}}'", 1000));
                 }
             });
         },
-        url: '/editProfilePhoto',
         transformFile: function(file, done) {
             // Create Dropzone reference for use in confirm button click handler
             var myDropZone = this;

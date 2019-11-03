@@ -29,4 +29,6 @@ Route::get('editProfilePhoto', 'UserController@editProfilePhotoView')->middlewar
 Route::post('editProfilePhoto', 'UserController@editProfilePhoto')->middleware('auth');
 
 /** FEED **/
-Route::get('feed', 'FeedController@show');
+Route::get('feed', 'FeedController@show')->middleware('auth');
+Route::get('feedUploadPhoto', 'FeedController@uploadFeedPhotoView')->middleware('auth');
+Route::post('feedUploadPhoto', 'FeedController@uploadFeedPhoto')->middleware('auth');

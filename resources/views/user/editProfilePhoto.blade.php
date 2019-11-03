@@ -3,7 +3,7 @@
 @section('content')
 <h1>Cambia foto profilo</h1>
 
-@component('user.uploadPhotoComponent')
+@component('uploadPhotoComponent', ['pathUpload' => 'editProfilePhoto', 'pathToReturn' => 'profile'])
 @endcomponent
 
 @endsection 

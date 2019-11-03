@@ -69,10 +69,10 @@
                             <a href="feed">Home</a>
                         </li>
                         <li>
-                            <a href="#">Carica foto</a>
+                            <a href="feedUploadPhoto">Carica foto</a>
                         </li>
                         <li>
-                            <a href="#">Le mie foto</a>
+                            <a href="myPhotos">Le mie foto</a>
                         </li>
                         <li>
                             <a href="profile">Il mio Profilo</a>

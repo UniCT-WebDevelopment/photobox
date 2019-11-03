@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\File;
+// use Illuminate\Support\Facades\File;
 use Illuminate\Http\Response;
 
 class UserController extends Controller
@@ -43,8 +43,6 @@ class UserController extends Controller
         $input = $request->all();
         if(!$this->checkAccountExist($input['email'], $input['nickname']) ) {
             $this->createUserAccount($input);
-            // $this->createFolderProfilePhoto($input['email']);
-            // $this->createFolderFeedPhoto($input['email']);
             return view('home', ['response' => 'success']);
         } else {
             return view('home', ['response' => 'fail']);
@@ -187,7 +185,6 @@ class UserController extends Controller
                 $this->editUserInfo($user, $input);
                 $this->changeUserPassword($user, $input);
             } else {
-                //return redirect('modify');
                 return view('user.modify', ['response' => 'fail'], ['user' => Auth::user()]);
             }
         } else { // Modifica solo info dell'utente
@@ -235,27 +232,4 @@ class UserController extends Controller
         return (User::where('email', '=', $email)->value('id'));
     }
 
-    /**
-     * Crea la directory per la foto profilo utente
-     * 
-     * @param String $email la email dell'utente
-     * @return File la directory creata
-     */
-    // private function createFolderProfilePhoto($email) {
-    //     $userID = $this->getUserIdByEmail($email);
-    //     $path = public_path().'/users/profile/' . $userID;
-    //     return File::makeDirectory($path, 0644, true, true);
-    // }
-
-    /**
-     * Crea la directory per le foto del feed utente
-     * 
-     * @param String $email la email dell'utente
-     * @return File la directory creata
-     */
-    // private function createFolderFeedPhoto($email) {
-    //     $userID = $this->getUserIdByEmail($email);
-    //     $path = public_path().'/users/feed/' . $userID;
-    //     return File::makeDirectory($path, 0644, true, true);
-    // }
 }
