@@ -9,6 +9,13 @@
 
 <script>
     Dropzone.options.myDropzone = {
+        init: function() {
+            this.on("success", function(files, response) {
+                if(response === 'success') {
+                    this.on("success", window.setTimeout("window.location.href='/profile'", 1000));
+                }
+            });
+        },
         url: '/editProfilePhoto',
         transformFile: function(file, done) {
             // Create Dropzone reference for use in confirm button click handler
@@ -60,7 +67,6 @@
                     // Remove the editor from the view
                       document.body.removeChild(editor);
                 });
-
 
             // Create an image node for Cropper.js
             var image = new Image();

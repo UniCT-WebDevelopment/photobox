@@ -112,7 +112,7 @@ class UserController extends Controller
         $user->imgProfilo = $fileName;
         $user->save();
   
-        return redirect('profile'); 
+        return response()->json('success', 200); 
     }
 
     /**
