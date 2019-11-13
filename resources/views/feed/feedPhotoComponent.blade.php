@@ -7,7 +7,7 @@
                 <div class="col-md-5 text-right">{{ date('d-m-Y', strtotime($photo->dataCaricamento)) }}</div>
             </div>
             <div class="photo-border"></div>
-            <img class="img-fluid" src="storage/users/feed/{{ $user->id }}/{{ $photo->nome }}">
+            <img class="img-responsive" src="storage/users/feed/{{ $user->id }}/{{ $photo->nome }}">
             <div class="photo-icons">
                 <div class="row">
                     <div class="col-md-4">

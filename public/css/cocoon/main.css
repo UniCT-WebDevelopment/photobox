@@ -2742,6 +2742,11 @@ textarea.form-control {
     margin-top: 10px;
 }
 
+.img-responsive {
+    width: 100%;
+    height: auto;
+}
+
 
 /*  ----------------------------------------------------
 14 class user profile
