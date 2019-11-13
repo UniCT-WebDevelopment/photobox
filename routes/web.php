@@ -19,12 +19,9 @@ Route::get('/', function () {
 Route::post('login', 'UserController@login');
 Route::post('signin', 'UserController@signin');
 Route::get('logout', 'UserController@logout')->middleware('auth');
-
 Route::get('profile', 'UserController@profile')->middleware('auth');
-
 Route::get('editProfileInfo', 'UserController@editProfileInfoView')->middleware('auth');
 Route::post('editProfileInfo', 'UserController@editProfileInfo')->middleware('auth');
-
 Route::get('editProfilePhoto', 'UserController@editProfilePhotoView')->middleware('auth');
 Route::post('editProfilePhoto', 'UserController@editProfilePhoto')->middleware('auth');
 
@@ -32,3 +29,4 @@ Route::post('editProfilePhoto', 'UserController@editProfilePhoto')->middleware('
 Route::get('feed', 'FeedController@show')->middleware('auth');
 Route::get('feedUploadPhoto', 'FeedController@uploadFeedPhotoView')->middleware('auth');
 Route::post('feedUploadPhoto', 'FeedController@uploadFeedPhoto')->middleware('auth');
+Route::get('myPhotos', 'FeedController@myPhotosView')->middleware('auth');

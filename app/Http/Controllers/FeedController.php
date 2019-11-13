@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Photo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -40,5 +41,11 @@ class FeedController extends Controller
         $this->savePhoto($fileName, Input::get('descrizione'), $gps, $user->id);
         
         return response()->json('success', 200); 
+    }
+
+    public function myPhotosView() {
+        $user = Auth::user();
+        $listaPhoto = Photo::where('idUtente', '=', $user->id)->get();
+        return view('feed.myPhotos', ['user' => Auth::user(), 'listaPhoto' => $listaPhoto]);
     }
 }
