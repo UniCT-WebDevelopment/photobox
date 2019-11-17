@@ -1,4 +1,3 @@
-
 @extends('layout', ['user' => $user]) 
 
 @section('content')

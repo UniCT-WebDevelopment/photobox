@@ -16,4 +16,8 @@ class Voto extends Model
     protected $fillable = [
         'dataVoto', 'like', 'idUtente', 'idPhoto',
     ];
+
+    public function photos() {
+        return $this->hasMany('App\Photo');
+    }
 }

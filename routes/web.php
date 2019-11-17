@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('home');
 })->name('login');
 
-/** USER **/
+/* USER */
 Route::post('login', 'UserController@login');
 Route::post('signin', 'UserController@signin');
 Route::get('logout', 'UserController@logout')->middleware('auth');
@@ -25,8 +25,12 @@ Route::post('editProfileInfo', 'UserController@editProfileInfo')->middleware('au
 Route::get('editProfilePhoto', 'UserController@editProfilePhotoView')->middleware('auth');
 Route::post('editProfilePhoto', 'UserController@editProfilePhoto')->middleware('auth');
 
-/** FEED **/
+/* FEED */
 Route::get('feed', 'FeedController@show')->middleware('auth');
 Route::get('feedUploadPhoto', 'FeedController@uploadFeedPhotoView')->middleware('auth');
 Route::post('feedUploadPhoto', 'FeedController@uploadFeedPhoto')->middleware('auth');
 Route::get('myPhotos', 'FeedController@myPhotosView')->middleware('auth');
+
+/* VOTI */
+Route::post('like', 'VotoController@like')->middleware('auth');
+Route::post('unlike', 'VotoController@unlike')->middleware('auth');

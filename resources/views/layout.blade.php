@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="author" content="{{ env('AUTHORS') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- ========== Title ========== -->
     <title>{{ env('APP_NAME') }}</title>
@@ -142,8 +143,11 @@
     <!-- WOW JS -->
     <script src="js/cocoon/wow.min.js"></script>
 
-    <!-- Custom JS -->
+    <!-- Main JS -->
     <script src="js/cocoon/main.js"></script>
+
+    <!-- Function JS -->
+    <script src="js/cocoon/function.js"></script>
 </body>
 
 </html>

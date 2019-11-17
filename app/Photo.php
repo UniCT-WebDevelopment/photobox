@@ -14,7 +14,29 @@ class Photo extends Model
      * @var array
      */
     protected $fillable = [
-        'nome', 'descrizione', 'GPS', 'dataCaricamento', 'idUtente',
+        'nome', 'descrizione', 'GPS', 'dataCaricamento', 'idUtente', 'like', 'unlike',
     ];
+
+    public function setLike($likeCounter) {
+        $this->attributes['like'] = $likeCounter;
+    }
+
+    public function setUnlike($unlikeCounter) {
+        $this->attributes['unlike'] = $unlikeCounter;
+    }
+
+    /**
+     * Get the users for the photo
+     */
+    public function users() {
+        return $this->belongsTo('App\User', 'idUtente');
+    }
+
+    /**
+     * Get the voti for the photo
+     */
+    public function voti() {
+        return $this->belongsTo('App\Voto');
+    }
 
 }
