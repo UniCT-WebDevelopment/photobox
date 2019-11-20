@@ -64,26 +64,7 @@
                 <!-- profile photo end-->
 
                 <!--main menu -->
-                <div class="side_menu_section">
-                    <ul class="menu_nav">
-                        <li class="active">
-                            <a href="feed">Home</a>
-                        </li>
-                        <li>
-                            <a href="feedUploadPhoto">Carica foto</a>
-                        </li>
-                        <li>
-                            <a href="myPhotos">Le mie foto</a>
-                        </li>
-                        <li>
-                            <a href="profile">Il mio Profilo</a>
-                        </li>
-                        <li>
-                            <a href="logout">Esci</a>
-                        </li>
-                    </ul>
-                </div>
-                <!--main menu end -->
+                @component('component.menuComponent', ['page' => $page]) @endcomponent
 
                 <!--filter menu -->
                 <div class="side_menu_section">

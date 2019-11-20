@@ -1,8 +1,4 @@
-@extends('layout', ['user' => $user])
-
-@section('nome_utente')
-    {{ $user->nome }} {{ $user->cognome }}
-@endsection
+@extends('layout', ['user' => $user, 'page' => 'P'])
 
 @section('content')
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
