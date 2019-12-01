@@ -2733,6 +2733,7 @@ textarea.form-control {
 
 .photo-container-description {
     min-height: 8.5rem;
+    border-bottom: 0.5px solid #dddddd;
 }
 
 .photo-description {
@@ -2745,6 +2746,15 @@ textarea.form-control {
 .img-responsive {
     width: 100%;
     height: auto;
+}
+
+.photo-container-btn-delete {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.photo-container-btn-delete a {
+    width: 100%;
 }
 
 

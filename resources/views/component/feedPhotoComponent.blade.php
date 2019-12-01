@@ -28,6 +28,11 @@
             <div class="photo-container-description">
                 <span class="photo-description">{{ $photo->descrizione }}</span>
             </div>
+            @if($photo->users->id == $user->id && $page == 'M')
+                <div class="photo-container-btn-delete">
+                    <a href="/deletePhoto?{{ $photo->id }}" class="btn btn-primary-outline">Cancella Foto</a>
+                </div>
+            @endif
         </div>
     </div>
 @endforeach
