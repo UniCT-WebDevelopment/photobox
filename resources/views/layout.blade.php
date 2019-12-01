@@ -62,7 +62,7 @@
                 @component('component.menuComponent', ['page' => $page]) @endcomponent
 
                 <!--filter menu -->
-                <div class="side_menu_section">
+                {{-- <div class="side_menu_section">
                     <h4 class="side_title">filtra per:</h4>
                     <ul id="filtr-container" class="filter_nav">
                         <li data-filter="*" class="active"><a href="javascript:void(0)">tutte</a></li>
@@ -70,7 +70,7 @@
                         <li data-filter=".design"><a href="javascript:void(0)">top of the mounth</a></li>
                         <li data-filter=".photography"><a href="javascript:void(0)">the best of ever</a></li>
                     </ul>
-                </div>
+                </div> --}}
                 <!--filter menu end -->
 
                 <!--social and copyright -->
