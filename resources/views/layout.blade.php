@@ -12,25 +12,32 @@
     <title>{{ env('APP_NAME') }}</title>
 
     <!-- ========== Favicon Ico ========== -->
-    <!--<link rel="icon" href="fav.ico">-->
+    <link rel="icon" href="images/fav.png">
 
     <!-- ========== STYLESHEETS ========== -->
     <!-- Bootstrap CSS -->
     <link href="css/cocoon/bootstrap.min.css" rel="stylesheet">
+
     <!-- Fonts Icon CSS -->
     <link href="css/cocoon/font-awesome.min.css" rel="stylesheet">
     <link href="css/cocoon/et-line.css" rel="stylesheet">
     <link href="css/cocoon/ionicons.min.css" rel="stylesheet">
+
     <!-- Carousel CSS -->
     <link href="css/cocoon/slick.css" rel="stylesheet">
+
     <!-- Magnific-popup -->
     <link rel="stylesheet" href="css/cocoon/magnific-popup.css">
+
     <!-- Animate CSS -->
     <link rel="stylesheet" href="css/cocoon/animate.min.css">
+
     <!-- Custom styles for this template -->
     <link href="css/cocoon/main.css" rel="stylesheet">
+
     <!-- Dropzone CSS -->
     <link href="css/cocoon/dropzone.css" rel="stylesheet">
+
     <!-- Cropper CSS -->
     <link href="https://unpkg.com/cropperjs/dist/cropper.css" rel="stylesheet"/>
 </head>
@@ -48,20 +55,8 @@
         <div class="row justify-content-center">
             <!--=================== side menu ====================-->
             <div class="col-lg-2 col-md-3 col-12 menu_block">
-
                 <!-- profile photo -->
-                <div id="colorlib-aside" class="logo_box">
-                    <h1 id="colorlib-logo">
-                        @yield('photoProfile')
-                        @if(!empty($user->imgProfilo))
-                            <span class="img" style="background-image: url(storage/users/profile/{{$user->id}}/{{$user->imgProfilo}});"></span>
-                        @else 
-                            <span class="img" style="background-image: url(images/users/default.png);"></span>
-                        @endif
-                        <a href="/profile">{{$user->nome}} {{$user->cognome}}</a>
-                    </h1>
-                </div>
-                <!-- profile photo end-->
+                @component('component.profilePhotoComponent', ['user' => $user]) @endcomponent
 
                 <!--main menu -->
                 @component('component.menuComponent', ['page' => $page]) @endcomponent
@@ -79,27 +74,17 @@
                 <!--filter menu end -->
 
                 <!--social and copyright -->
-                <div class="side_menu_bottom">
-                    <div class="side_menu_bottom_inner">
-                        <div class="copy_right">
-                            <p>© 2019 {{ env('APP_NAME') }}. All rights reserved </p>
-                            <p>Design by: {{ env('AUTHORS') }}</p>
-                        </div>
-                    </div>
-                </div>
-                <!--social and copyright end -->
-
+                @component('component.copyrightComponent') @endcomponent
             </div>
-            <!--=================== side menu end====================-->
 
             <!--=================== content body ====================-->
             <div class="col-lg-10 col-md-9 col-12 body_block  align-content-center">
                 @yield('content')
             </div>
-            <!--=================== content body end ====================-->
         </div>
     </div>
-
+    
+    <!-- ========== SCRIPT ========== -->
     <!-- jquery -->
     <script src="js/cocoon/jquery.min.js"></script>
 
