@@ -38,8 +38,6 @@ Nella sezione privata l'utente visualizzerà qualche indice statistico su come s
 
 Template: https://colorlib.com/preview/#cocoon
 
-~~[Icon] Repo icone: https://www.flaticon.com/~~
-
 [PHP] EXIF: https://www.php.net/manual/en/book.exif.php
 
 [PHP] EXIF geo location: https://stackoverflow.com/questions/2526304/php-extract-gps-exif-data
@@ -56,4 +54,6 @@ Template: https://colorlib.com/preview/#cocoon
 
 **Setup Applicazione**
 
-* Lanciare: php artisan storage:link
+Lanciare: 
+* php artisan storage:link
+* composer require intervention/image
