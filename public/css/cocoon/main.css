@@ -2766,3 +2766,16 @@ textarea.form-control {
     color: #ef1414!important;
     font-weight: bolder!important;
 }
+
+
+/*  ----------------------------------------------------
+15 class voto
+-------------------------------------------------------- */
+
+.like-active {
+    color: #1E90FF!important;
+}
+
+.unlike-active {
+    color: #ef1414!important;
+}

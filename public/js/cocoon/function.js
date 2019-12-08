@@ -5,7 +5,6 @@ $.ajaxSetup({
 });
 
 function like(idPhoto) {
-    console.log('Like');
     $.ajax({
         url: '/like',
         dataType: 'json',
@@ -23,9 +22,8 @@ function like(idPhoto) {
 }
 
 function unlike(idPhoto) {
-    console.log('Unlike');
     $.ajax({
-        url: '/like',
+        url: '/unlike',
         dataType: 'json',
         data: { idPhoto: idPhoto },
         type: 'POST',
