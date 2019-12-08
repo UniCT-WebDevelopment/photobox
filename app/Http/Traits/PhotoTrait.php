@@ -2,11 +2,14 @@
 namespace App\Http\Traits;
 
 use App\Photo;
+use App\Utils\VotoTypeEnum;
 use App\Voto;
 use Carbon\Carbon;
 
-trait PhotoTrait {
-    public function savePhoto($fileName, $descrizione, $gps, $userId) {
+trait PhotoTrait
+{
+    public function savePhoto($fileName, $descrizione, $gps, $userId)
+    {
         $photo = new Photo;
         $photo->nome = $fileName;
         $photo->descrizione = $descrizione;
@@ -17,8 +20,9 @@ trait PhotoTrait {
         return;
     }
 
-    public function calcLikeAndUnlike($listaPhoto) {
-        foreach($listaPhoto as &$photo) {
+    public function calcLikeAndUnlike($listaPhoto)
+    {
+        foreach ($listaPhoto as &$photo) {
             $likeCounter = $this->getLikeByIdPhoto($photo->id);
             $unlikeCounter = $this->getUnlikeByIdPhoto($photo->id);
             $photo->setLike($likeCounter);
@@ -27,11 +31,19 @@ trait PhotoTrait {
         return $listaPhoto;
     }
 
-    public function getLikeByIdPhoto($id) {
-        return Voto::where('idPhoto', '=', $id)->where('like', '=', '1')->count();
+    public function getLikeByIdPhoto($id)
+    {
+        return Voto::where('idPhoto', $id)->where('like', VotoTypeEnum::LIKE)->count();
     }
 
-    public function getUnlikeByIdPhoto($id) {
-        return Voto::where('idPhoto', '=', $id)->where('like', '=', '-1')->count();
+    public function getUnlikeByIdPhoto($id)
+    {
+        return Voto::where('idPhoto', $id)->where('like', VotoTypeEnum::UNLIKE)->count();
+    }
+
+    public function getGPS($path)
+    {
+        return $exif = @exif_read_data($path);
+
     }
 }
