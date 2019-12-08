@@ -18,7 +18,10 @@ class FeedController extends Controller
     public function show()
     {
         $user = Auth::user();
-        $listaPhoto = $this->calcLikeAndUnlike(Photo::with('users')->get());
+        $listaPhoto = $this->calcLikeAndUnlike(
+            Photo::with('users')
+                ->orderBy('dataCaricamento', 'desc')->get()
+        );
         return view('feed.feed', ['user' => Auth::user(), 'listaPhoto' => $listaPhoto]);
     }
 
@@ -55,7 +58,10 @@ class FeedController extends Controller
     public function myPhotosView()
     {
         $user = Auth::user();
-        $listaPhoto = $this->calcLikeAndUnlike(Photo::where('idUtente', '=', $user->id)->get());
+        $listaPhoto = $this->calcLikeAndUnlike(
+            Photo::where('idUtente', $user->id)
+                ->orderBy('dataCaricamento', 'desc')->get()
+        );
         return view('feed.myPhotos', ['user' => Auth::user(), 'listaPhoto' => $listaPhoto]);
     }
 }
