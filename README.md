@@ -20,9 +20,9 @@ Nella sezione privata l'utente visualizzerà qualche indice statistico su come s
 * Login utente
 * Upload immagini e ridimenzionamento quadrato
     * Descrizione
-    * Geolocalizzaione estratta da EXIF (se disponibile)
+    * ~~Geolocalizzaione estratta da EXIF (se disponibile)~~
 * Tip positivo, negativo e delta (Like)
-* Analisi EXIF immagini (chiamata a servizi terzi secondo me inutile e lunga da fare)
+* ~~Analisi EXIF immagini (chiamata a servizi terzi secondo me inutile e lunga da fare)~~
 * Profilo utente con info personali e grafici per l'andamento dei post
     * ~~grafico con il resoconto dei tip (visualizzazione 1d, 1w, 1m, 1a)~~
     * ~~grafico col numero di immagini pubblicate (visualizzazione 1d, 1w, 1m, 1a)~~
