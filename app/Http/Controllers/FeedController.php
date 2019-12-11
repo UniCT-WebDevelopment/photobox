@@ -43,15 +43,11 @@ class FeedController extends Controller
 
         $path = storage_path('app/public/users/feed/' . $user->id . '/' . $fileName);
 
-        //TODO estrapolare GPS
         $img = Image::make($request->file);
-        $exif = $img->exif();
-
         $img->save($path, 80, 'jpg');
-        $gps = $this->getGPS($img);
 
         $descrizione = Input::get('descrizione') != null ? Input::get('descrizione') : "";
-        $this->savePhoto($fileName, $descrizione, $gps, $user->id);
+        $this->savePhoto($fileName, $descrizione, $user->id);
         return response()->json('success', 200);
     }
 

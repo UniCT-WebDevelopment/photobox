@@ -8,12 +8,11 @@ use Carbon\Carbon;
 
 trait PhotoTrait
 {
-    public function savePhoto($fileName, $descrizione, $gps, $userId)
+    public function savePhoto($fileName, $descrizione, $userId)
     {
         $photo = new Photo;
         $photo->nome = $fileName;
         $photo->descrizione = $descrizione;
-        $photo->GPS = $gps;
         $photo->dataCaricamento = Carbon::now();
         $photo->idUtente = $userId;
         $photo->save();
@@ -41,9 +40,4 @@ trait PhotoTrait
         return Voto::where('idPhoto', $id)->where('like', VotoTypeEnum::UNLIKE)->count();
     }
 
-    public function getGPS($path)
-    {
-        return $exif = @exif_read_data($path);
-
-    }
 }

@@ -14,7 +14,7 @@ class Photo extends Model
      * @var array
      */
     protected $fillable = [
-        'nome', 'descrizione', 'GPS', 'dataCaricamento', 'idUtente', 'like', 'unlike',
+        'nome', 'descrizione', 'dataCaricamento', 'idUtente', 'like', 'unlike',
     ];
 
     public function setLike($likeCounter) {

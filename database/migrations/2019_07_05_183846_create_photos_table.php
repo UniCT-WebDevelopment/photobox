@@ -17,7 +17,6 @@ class CreatePhotosTable extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->string('descrizione');
-            $table->string('GPS');
             $table->date('dataCaricamento');
             $table->bigInteger('idUtente');
             $table->timestamps();
