@@ -14,18 +14,15 @@
             <img class="img-responsive" src="storage/users/feed/{{ $photo->users->id }}/{{ $photo->nome }}">
             <div class="photo-icons">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <a class="like @if($checkLike){{"like-active"}}@endif" onclick="like({{ $photo->id }})">
                             <i class="fa fa-thumbs-up"></i>&nbsp; {{ $photo->like }}
                         </a>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <a class="unlike @if($checkUnlike){{"unlike-active"}}@endif" onclick="unlike({{ $photo->id }})">
                             <i class="fa fa-thumbs-down"></i>&nbsp; {{ $photo->unlike }}
                         </a>
-                    </div>
-                    <div class="col-md-4">
-                        <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;Map
                     </div>
                 </div>
             </div>
