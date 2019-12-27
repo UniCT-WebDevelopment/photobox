@@ -29,4 +29,14 @@ trait VotoTrait
             ->delete();
     }
 
+    /**
+     * Modifica la entry a DB nella tabella Voto
+     */
+    public function changeVoto($likeType, $idUtente, $idPhoto)
+    {
+        $voto = Voto::where('idUtente', $idUtente)
+            ->where('idPhoto', $idPhoto)->first();
+        $voto->like = $likeType;
+        $voto->save();
+    }
 }
