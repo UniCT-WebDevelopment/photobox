@@ -17,26 +17,38 @@ class Photo extends Model
         'nome', 'descrizione', 'dataCaricamento', 'idUtente', 'like', 'unlike',
     ];
 
-    public function setLike($likeCounter) {
+    public function setLike($likeCounter)
+    {
         $this->attributes['like'] = $likeCounter;
     }
 
-    public function setUnlike($unlikeCounter) {
+    public function setUnlike($unlikeCounter)
+    {
         $this->attributes['unlike'] = $unlikeCounter;
     }
 
     /**
      * Get the users for the photo
      */
-    public function users() {
+    public function users()
+    {
         return $this->belongsTo('App\User', 'idUtente');
     }
 
     /**
      * Get the voti for the photo
      */
-    public function voti() {
-        return $this->belongsTo('App\Voto');
+    public function voti()
+    {
+        return $this->hasMany('App\Voto', 'idPhoto');
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+        static::deleting(function ($photo) {
+            $photo->voti()->delete();
+        });
     }
 
 }

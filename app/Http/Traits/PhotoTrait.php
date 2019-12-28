@@ -5,6 +5,7 @@ use App\Photo;
 use App\Utils\VotoTypeEnum;
 use App\Voto;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 trait PhotoTrait
 {
@@ -38,6 +39,18 @@ trait PhotoTrait
     public function getUnlikeByIdPhoto($id)
     {
         return Voto::where('idPhoto', $id)->where('like', VotoTypeEnum::UNLIKE)->count();
+    }
+
+    private function deleteProfilePhoto($user)
+    {
+        $directory = 'public/users/profile/' . $user->id;
+        Storage::deleteDirectory($directory);
+    }
+
+    private function deleteAllFeedPhoto($user)
+    {
+        $directory = '/public/users/feed/' . $user->id;
+        Storage::deleteDirectory($directory);
     }
 
 }

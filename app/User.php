@@ -2,9 +2,8 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -16,8 +15,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'cognome', 'nickname', 'dataNascita', 
-        'email', 'password', 'bio', 'imgProfilo'
+        'name', 'cognome', 'nickname', 'dataNascita',
+        'email', 'password', 'bio', 'imgProfilo',
     ];
 
     /**
@@ -38,7 +37,22 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function photos() {
-        return $this->hasMany('App\Photo');
+    public function photos()
+    {
+        return $this->hasMany('App\Photo', 'idUtente');
+    }
+
+    public function voti()
+    {
+        return $this->hasMany('App\Voto', 'idUtente');
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+        static::deleting(function ($user) {
+            $user->photos()->delete();
+            $user->voti()->delete();
+        });
     }
 }

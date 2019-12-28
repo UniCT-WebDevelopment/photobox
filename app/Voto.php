@@ -17,7 +17,8 @@ class Voto extends Model
         'dataVoto', 'like', 'idUtente', 'idPhoto',
     ];
 
-    public function photos() {
-        return $this->hasMany('App\Photo');
+    public function photos()
+    {
+        return $this->belongsTo('App\Photo', 'idPhoto');
     }
 }

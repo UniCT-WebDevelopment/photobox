@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -63,7 +64,11 @@ class FeedController extends Controller
 
     public function deletePhoto(Request $request, $id)
     {
-        Photo::where('id', $id)->delete();
+        $user = Auth::user();
+        $photo = Photo::where('id', $id)->first();
+        $path = 'public/users/feed/' . $user->id . '/' . $photo->nome;
+        Storage::delete($path);
+        $photo->delete();
         return redirect('myPhotos');
     }
 }

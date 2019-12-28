@@ -100,8 +100,6 @@ class UserController extends Controller
      */
     public function editProfilePhoto(Request $request)
     {
-        $user = Auth::user();
-
         $rules = array(
             'file' => 'image',
         );
@@ -109,13 +107,7 @@ class UserController extends Controller
         if ($validation->fails()) {
             return response()->json(['error' => $validation->errors()->getMessages()], 400);
         }
-
-        $fileName = $this->generateFileName($request);
-        $request->file->storeAs('public/users/profile/' . $user->id . '/', $fileName);
-
-        $user->imgProfilo = $fileName;
-        $user->save();
-
+        $this->saveProfilePhoto($request, Auth::user());
         return response()->json('success', 200);
     }
 
@@ -181,6 +173,14 @@ class UserController extends Controller
             $this->editUserInfo($user, $input);
         }
         return redirect('profile');
+    }
+
+    public function deleteAccount()
+    {
+        $user = Auth::user();
+        $this->deleteUserFiles($user);
+        $user->delete();
+        return redirect('/');
     }
 
 }

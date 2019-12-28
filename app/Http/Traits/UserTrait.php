@@ -1,11 +1,14 @@
 <?php
 namespace App\Http\Traits;
 
+use App\Http\Traits\PhotoTrait;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 
 trait UserTrait
 {
+    use PhotoTrait;
+
     /**
      * Verifica se esiste un utente con una data email e/o un dato nickname
      *
@@ -71,4 +74,20 @@ trait UserTrait
         $extension = $request->file->getClientOriginalExtension();
         return sha1(time() . time()) . ".{$extension}";
     }
+
+    private function saveProfilePhoto($request, $user)
+    {
+        $fileName = $this->generateFileName($request);
+        $request->file->storeAs('public/users/profile/' . $user->id . '/', $fileName);
+
+        $user->imgProfilo = $fileName;
+        $user->save();
+    }
+
+    private function deleteUserFiles($user)
+    {
+        $this->deleteProfilePhoto($user);
+        $this->deleteAllFeedPhoto($user);
+    }
+
 }

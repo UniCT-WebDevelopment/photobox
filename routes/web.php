@@ -24,7 +24,7 @@ Route::get('editProfileInfo', 'UserController@editProfileInfoView')->middleware(
 Route::post('editProfileInfo', 'UserController@editProfileInfo')->middleware('auth');
 Route::get('editProfilePhoto', 'UserController@editProfilePhotoView')->middleware('auth');
 Route::post('editProfilePhoto', 'UserController@editProfilePhoto')->middleware('auth');
-Route::post('deleteAccount', 'UserController@deleteAccount')->middleware('auth');
+Route::get('deleteAccount', 'UserController@deleteAccount')->middleware('auth');
 
 /* FEED */
 Route::get('feed', 'FeedController@show')->middleware('auth');
