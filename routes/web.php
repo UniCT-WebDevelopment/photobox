@@ -9,7 +9,7 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/', function () {
     return view('home');
@@ -24,12 +24,14 @@ Route::get('editProfileInfo', 'UserController@editProfileInfoView')->middleware(
 Route::post('editProfileInfo', 'UserController@editProfileInfo')->middleware('auth');
 Route::get('editProfilePhoto', 'UserController@editProfilePhotoView')->middleware('auth');
 Route::post('editProfilePhoto', 'UserController@editProfilePhoto')->middleware('auth');
+Route::post('deleteAccount', 'UserController@deleteAccount')->middleware('auth');
 
 /* FEED */
 Route::get('feed', 'FeedController@show')->middleware('auth');
 Route::get('feedUploadPhoto', 'FeedController@uploadFeedPhotoView')->middleware('auth');
 Route::post('feedUploadPhoto', 'FeedController@uploadFeedPhoto')->middleware('auth');
 Route::get('myPhotos', 'FeedController@myPhotosView')->middleware('auth');
+Route::get('deletePhoto/{id}', 'FeedController@deletePhoto')->middleware('auth');
 
 /* VOTI */
 Route::post('like', 'VotoController@like')->middleware('auth');

@@ -31,7 +31,7 @@
             </div>
             @if($photo->users->id == $user->id && $page == 'M')
             <div class="photo-container-btn-delete">
-                <a href="/deletePhoto?{{ $photo->id }}" class="btn btn-primary-outline">Cancella Foto</a>
+                <a href="/deletePhoto/{{ $photo->id }}" class="btn btn-primary-outline">Cancella Foto</a>
             </div>
             @endif
         </div>

@@ -60,4 +60,10 @@ class FeedController extends Controller
         );
         return view('feed.myPhotos', ['user' => Auth::user(), 'listaPhoto' => $listaPhoto]);
     }
+
+    public function deletePhoto(Request $request, $id)
+    {
+        Photo::where('id', $id)->delete();
+        return redirect('myPhotos');
+    }
 }
