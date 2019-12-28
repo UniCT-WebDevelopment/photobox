@@ -43,6 +43,8 @@ class FeedController extends Controller
         $fileName = sha1(time() . time()) . '.jpg';
 
         $path = storage_path('app/public/users/feed/' . $user->id . '/' . $fileName);
+        $directory = 'public/users/feed/' . $user->id;
+        Storage::makeDirectory($directory);
 
         $img = Image::make($request->file);
         $img->save($path, 80, 'jpg');
