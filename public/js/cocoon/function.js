@@ -44,8 +44,8 @@ function getMediaVoti() {
         dataType: 'json',
         type: 'GET',
         success: function(res) {
-            console.log(res);
             populateChartMediaVoti(res);
+            populateChartTrendVoti(res);
         }
     });
 }
@@ -93,6 +93,37 @@ function populateChartMediaVoti(data) {
         }
     });
     myBar.update();
+}
+
+function populateChartTrendVoti(dataRes) {
+    var result = [];
+    for (var i in dataRes) {
+        result.push([dataRes[i]]);
+    }
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
+            datasets: [{
+                label: 'Media voti',
+                backgroundColor: 'rgba(254,152,81,0.2)',
+                borderColor: 'rgba(254,152,81,1)',
+                borderWidth: 2,
+                data: result
+            }]
+        },
+
+        options: {
+            responsive: true,
+            legend: false,
+            title: {
+                display: true,
+                text: 'Trend dei Voti'
+            }
+        }
+    });
 }
 
 function refreshVotoLike(idPhoto) {

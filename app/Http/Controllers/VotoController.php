@@ -82,11 +82,4 @@ class VotoController extends Controller
         $response = $this->prepareResponse($voti);
         echo json_encode($response);
     }
-
-    public function getTrendVoti()
-    {
-        $user = Auth::user();
-
-    }
-
 }
