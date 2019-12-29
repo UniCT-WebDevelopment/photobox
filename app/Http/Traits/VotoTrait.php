@@ -39,4 +39,28 @@ trait VotoTrait
         $voto->like = $likeType;
         $voto->save();
     }
+
+    public function getSumVotiPerMese($user)
+    {
+        $ph = $user->photos()->pluck('id')->toArray();
+        return Voto::selectRaw('EXTRACT(month from dataVoto) AS Mese, SUM(voti.like) AS MediaVoto')
+            ->whereIn('idPhoto', $ph)
+            ->whereYear('dataVoto', Carbon::now()->year)
+            ->orderBy('Mese')
+            ->groupBy('Mese')
+            ->get()
+            ->toArray();
+    }
+
+    public function prepareResponse($voti)
+    {
+        $response = array();
+        for ($key = 1; $key <= 12; $key++) {
+            $response[$key] = '0';
+        }
+        foreach ($voti as $voto) {
+            $response[$voto['Mese']] = $voto['MediaVoto'];
+        }
+        return $response;
+    }
 }
