@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Traits\VotoTrait;
+use App\Photo;
 use App\Utils\VotoTypeEnum;
 use App\Voto;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -73,6 +75,39 @@ class VotoController extends Controller
             ->where('like', '=', $likeType)
             ->count();
         return $count > 0 ? true : false;
+    }
+
+    public function getMediaVoti()
+    {
+        $user = Auth::user();
+        $now = Carbon::now();
+
+        $ph = $user->photos()->pluck('id')->toArray();
+
+        $voti = Voto::selectRaw('EXTRACT(month from dataVoto) AS Mese, SUM(voti.like) AS MediaVoto')
+            ->whereIn('idPhoto', $ph)
+            ->whereYear('dataVoto', $now->year)
+            ->orderBy('Mese')
+            ->groupBy('Mese')
+            ->get()
+            ->toArray();
+
+        $response = array();
+        for ($key = 1; $key <= 12; $key++) {
+            $response[$key] = '0';
+        }
+
+        foreach ($voti as $voto) {
+            $response[$voto['Mese']] = $voto['MediaVoto'];
+        }
+
+        echo json_encode($response);
+    }
+
+    public function getTrendVoti()
+    {
+        $user = Auth::user();
+
     }
 
 }

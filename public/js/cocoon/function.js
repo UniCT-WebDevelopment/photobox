@@ -38,6 +38,63 @@ function unlike(idPhoto) {
     });
 }
 
+function getMediaVoti() {
+    $.ajax({
+        url: '/mediaVoti',
+        dataType: 'json',
+        type: 'GET',
+        success: function(res) {
+            console.log(res);
+            populateChartMediaVoti(res);
+        }
+    });
+}
+
+function populateChartMediaVoti(data) {
+    var myColorBackground = [];
+    var myColorBorder = [];
+
+    var result = [];
+    for (var i in data)
+        result.push([data[i]]);
+
+    for (i = 0; i < result.length; i++) {
+        if (result[i] >= 0) {
+            myColorBackground[i] = "rgba(85,158,91,0.2)";
+            myColorBorder[i] = "rgba(85,158,91,1)";
+        } else {
+            myColorBackground[i] = "rgba(158,14,30,0.2)";
+            myColorBorder[i] = "rgba(158,14,30,1)";
+        }
+    }
+
+    var barChartData = {
+        labels: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
+        datasets: [{
+            label: 'Media voti per mese',
+            backgroundColor: myColorBackground,
+            borderColor: myColorBorder,
+            borderWidth: 1,
+            data: result
+        }]
+    };
+
+    var ctx = document.getElementById('myChart2').getContext('2d');
+    window.myBar = new Chart(ctx, {
+        type: 'bar',
+        data: barChartData,
+        options: {
+            responsive: true,
+            legend: false,
+            title: {
+                display: true,
+                text: 'Media Voti Positivi/Negativi'
+            }
+        }
+    });
+    myBar.update();
+}
+
 function refreshVotoLike(idPhoto) {
     let $likeElement = $('#photoId_' + idPhoto + ' .like');
     let $votoLikeElement = $('#photoId_' + idPhoto + ' .like .voto');
