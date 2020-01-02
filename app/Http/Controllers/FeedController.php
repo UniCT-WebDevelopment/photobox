@@ -21,7 +21,9 @@ class FeedController extends Controller
         $user = Auth::user();
         $listaPhoto = $this->calcLikeAndUnlike(
             Photo::with('users')
-                ->orderBy('dataCaricamento', 'desc')->get()
+                ->orderBy('dataCaricamento', 'desc')
+                ->orderBy('id', 'desc')
+                ->get()
         );
         return view('feed.feed', ['user' => Auth::user(), 'listaPhoto' => $listaPhoto]);
     }
