@@ -41,13 +41,14 @@
             buttonConfirm.style.left = '10px';
             buttonConfirm.style.top = '10px';
             buttonConfirm.style.zIndex = 9999;
-            buttonConfirm.textContent = 'Confirm';
+            buttonConfirm.textContent = 'Conferma';
+            buttonConfirm.className = 'btn btn-primary';
             editor.appendChild(buttonConfirm);
             buttonConfirm.addEventListener('click', function() {
                 // Get the canvas with image data from Cropper.js
                 var canvas = cropper.getCroppedCanvas({
-                    width: 256,
-                    height: 256
+                    width: 512,
+                    height: 512
                 });
 
                 // Turn the canvas into a Blob (file object without a name)
