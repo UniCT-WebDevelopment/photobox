@@ -65,17 +65,28 @@ class VotoController extends Controller
     }
 
     /**
-     * Verifica se per una data Photo esiste un voto di un dato Utente
+     * Verifica se per una data Photo esiste un Voto di un dato Utente
+     *
+     * @param Int
+     * @param Int
+     * @param Int
+     * @return Boolean
      */
     public static function checkVotoExist($likeType, $idUtente, $idPhoto)
     {
-        $count = Voto::where('idUtente', '=', $idUtente)
-            ->where('idPhoto', '=', $idPhoto)
-            ->where('like', '=', $likeType)
+        $count = Voto::where('idUtente', $idUtente)
+            ->where('idPhoto', $idPhoto)
+            ->where('like', $likeType)
             ->count();
         return $count > 0 ? true : false;
     }
 
+    /**
+     * Calcola l'andamento dei voti
+     *
+     * @param Void
+     * @return JSON
+     */
     public function getMediaVoti()
     {
         $voti = $this->getSumVotiPerMese(Auth::user());
