@@ -51,7 +51,7 @@ class FeedController extends Controller
         $img = Image::make($request->file);
         $img->save($path, 80, 'jpg');
 
-        $descrizione = Input::get('descrizione') != null ? Input::get('descrizione') : "";
+        $descrizione = Input::get('descrizione') != null ? substr(Input::get('descrizione'), 0, 250) : "";
         $this->savePhoto($fileName, $descrizione, $user->id);
         return response()->json('success', 200);
     }
