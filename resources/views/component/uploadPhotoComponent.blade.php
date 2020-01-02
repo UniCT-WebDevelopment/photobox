@@ -1,7 +1,8 @@
 <div id="dropzone">
     <form id="myDropzone" class="dropzone needsclick" action="/{{$pathUpload}}">
         @if($pathUpload == 'feedUploadPhoto')
-            <input type="text" name="descrizione" id="descrizione" class="form-control" placeholder="Descrizione foto..." autocomplete="off">
+        <input type="text" name="descrizione" id="descrizione" class="form-control" placeholder="Descrizione foto..."
+            autocomplete="off" maxlength="250">
         @endif
         {{ csrf_field() }}
     </form>
