@@ -49,6 +49,7 @@ class FeedController extends Controller
         Storage::makeDirectory($directory);
 
         $img = Image::make($request->file);
+        $img->resize(512, 512);
         $img->save($path, 80, 'jpg');
 
         $descrizione = Input::get('descrizione') != null ? substr(Input::get('descrizione'), 0, 250) : "";
