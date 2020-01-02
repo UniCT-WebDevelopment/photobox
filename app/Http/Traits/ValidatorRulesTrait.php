@@ -41,7 +41,7 @@ trait ValidatorRulesTrait
     private function validateInputSignin()
     {
         $rules = array(
-            'nome' => 'required|min:1|max:3',
+            'nome' => 'required|min:1|max:30',
             'cognome' => 'required|min:1|max:30',
             'nickname' => 'required|min:1|max:20',
             'email' => 'required|email|min:5|max:200',
