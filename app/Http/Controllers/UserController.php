@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Http\Traits\UserTrait;
+use App\Http\Traits\ValidatorRulesTrait;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
-    use UserTrait;
+    use UserTrait, ValidatorRulesTrait;
 
     /**
      * Login utente
@@ -22,7 +22,7 @@ class UserController extends Controller
      */
     public function login()
     {
-        $validator = $this->validateInputRules();
+        $validator = $this->validateInputLogin();
         if ($validator->fails()) {
             return Redirect::to('/')->withErrors($validator)->withInput(Input::except('password'));
         } else {
@@ -45,11 +45,16 @@ class UserController extends Controller
     {
         $input = $request->all();
         if (!$this->checkAccountExist($input['email'], $input['nickname'])) {
-            $this->createUserAccount($input);
-            return view('home', ['response' => 'success']);
-        } else {
-            return view('home', ['response' => 'fail']);
+            $validator = $this->validateInputSignin();
+            if (!$validator->fails()) {
+                $this->createUserAccount($input);
+                return view('home', ['response' => 'success']);
+            }
+            $validator->errors()->add('signin_fail', 'Registrazione fallita!');
+            return Redirect::to('/')->withErrors($validator)->withInput(Input::all());
         }
+        return Redirect::to('/')
+            ->withErrors(['signin_fail' => 'Account già esistente!']);
     }
 
     /**
@@ -100,29 +105,12 @@ class UserController extends Controller
      */
     public function editProfilePhoto(Request $request)
     {
-        $rules = array(
-            'file' => 'image',
-        );
-        $validation = Validator::make(Input::all(), $rules);
+        $validation = $this->validateInputPhoto();
         if ($validation->fails()) {
             return response()->json(['error' => $validation->errors()->getMessages()], 400);
         }
         $this->saveProfilePhoto($request, Auth::user());
         return response()->json('success', 200);
-    }
-
-    /**
-     * Validazione input login
-     *
-     * @return Validator
-     */
-    private function validateInputRules()
-    {
-        $rules = array(
-            'email' => 'required|email',
-            'password' => 'required|alphaNum|min:1',
-        );
-        return Validator::make(Input::all(), $rules);
     }
 
     /**
@@ -153,7 +141,7 @@ class UserController extends Controller
      * Modifica le informazioni e/o la password di un utente
      *
      * @param Request $request una Request HTTP
-     * @return Redirect alla view profile in caso di successo, altrimenti alla view modify
+     * @return Redirect alla view profile in caso di successo, altrimenti alla view editProfileInfo
      */
     public function editProfileInfo(Request $request)
     {
@@ -166,7 +154,7 @@ class UserController extends Controller
                 $this->editUserInfo($user, $input);
                 $this->changeUserPassword($user, $input);
             } else {
-                return view('user.modify', ['response' => 'fail'], ['user' => Auth::user()]);
+                return view('user.editProfileInfo', ['response' => 'fail'], ['user' => Auth::user()]);
             }
         } else {
             // Modifica solo info dell'utente
