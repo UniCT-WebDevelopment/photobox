@@ -116,7 +116,7 @@ class UserController extends Controller
     /**
      * Estrae i dati utente passati dalla login form
      *
-     * @return array
+     * @return Array
      */
     private function getUserData()
     {
@@ -130,7 +130,7 @@ class UserController extends Controller
      * Crea un nuovo utente
      *
      * @param Array $params array dei parametri dell'utente
-     * @return void
+     * @return Void
      */
     private function createUserAccount($params)
     {
@@ -163,6 +163,11 @@ class UserController extends Controller
         return redirect('profile');
     }
 
+    /**
+     * Cancella un account
+     *
+     * @return Redirect alla view home
+     */
     public function deleteAccount()
     {
         $user = Auth::user();
@@ -171,4 +176,16 @@ class UserController extends Controller
         return redirect('/');
     }
 
+    /**
+     * Mostra la view GuestProfile
+     *
+     * @return view guestProfile
+     */
+    public function guestProfileView(Request $request)
+    {
+        $id = $request->input('id');
+        $guest = $this->getUserById($id);
+        $listaPhoto = $guest->photos;
+        return view('user.guestProfile', ['user' => Auth::user(), 'guest' => $guest, 'listaPhoto' => $listaPhoto]);
+    }
 }

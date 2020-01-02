@@ -12,31 +12,31 @@
     <title>{{ env('APP_NAME') }}</title>
 
     <!-- ========== Favicon Ico ========== -->
-    <link rel="icon" href="images/fav.png">
+    <link rel="icon" href="{{ url('/') }}/images/fav.png">
 
     <!-- ========== STYLESHEETS ========== -->
     <!-- Bootstrap CSS -->
-    <link href="css/cocoon/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url('/') }}/css/cocoon/bootstrap.min.css" rel="stylesheet">
 
     <!-- Fonts Icon CSS -->
-    <link href="css/cocoon/font-awesome.min.css" rel="stylesheet">
-    <link href="css/cocoon/et-line.css" rel="stylesheet">
-    <link href="css/cocoon/ionicons.min.css" rel="stylesheet">
+    <link href="{{ url('/') }}/css/cocoon/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ url('/') }}/css/cocoon/et-line.css" rel="stylesheet">
+    <link href="{{ url('/') }}/css/cocoon/ionicons.min.css" rel="stylesheet">
 
     <!-- Carousel CSS -->
-    <link href="css/cocoon/slick.css" rel="stylesheet">
+    <link href="{{ url('/') }}/css/cocoon/slick.css" rel="stylesheet">
 
     <!-- Magnific-popup -->
-    <link rel="stylesheet" href="css/cocoon/magnific-popup.css">
+    <link rel="stylesheet" href="{{ url('/') }}/css/cocoon/magnific-popup.css">
 
     <!-- Animate CSS -->
-    <link rel="stylesheet" href="css/cocoon/animate.min.css">
+    <link rel="stylesheet" href="{{ url('/') }}/css/cocoon/animate.min.css">
 
     <!-- Custom styles for this template -->
-    <link href="css/cocoon/main.css" rel="stylesheet">
+    <link href="{{ url('/') }}/css/cocoon/main.css" rel="stylesheet">
 
     <!-- Dropzone CSS -->
-    <link href="css/cocoon/dropzone.css" rel="stylesheet">
+    <link href="{{ url('/') }}/css/cocoon/dropzone.css" rel="stylesheet">
 
     <!-- Cropper CSS -->
     <link href="https://unpkg.com/cropperjs/dist/cropper.css" rel="stylesheet" />
@@ -74,34 +74,34 @@
 
     <!-- ========== SCRIPT ========== -->
     <!-- jquery -->
-    <script src="js/cocoon/jquery.min.js"></script>
+    <script src="{{ url('/') }}/js/cocoon/jquery.min.js"></script>
 
     <!-- bootstrap -->
-    <script src="js/cocoon/popper.js"></script>
-    <script src="js/cocoon/bootstrap.min.js"></script>
-    <script src="js/cocoon/waypoints.min.js"></script>
+    <script src="{{ url('/') }}/js/cocoon/popper.js"></script>
+    <script src="{{ url('/') }}/js/cocoon/bootstrap.min.js"></script>
+    <script src="{{ url('/') }}/js/cocoon/waypoints.min.js"></script>
 
     <!--slick carousel -->
-    <script src="js/cocoon/slick.min.js"></script>
+    <script src="{{ url('/') }}/js/cocoon/slick.min.js"></script>
 
     <!--Portfolio Filter-->
-    <script src="js/cocoon/imgloaded.js"></script>
-    <script src="js/cocoon/isotope.js"></script>
+    <script src="{{ url('/') }}/js/cocoon/imgloaded.js"></script>
+    <script src="{{ url('/') }}/js/cocoon/isotope.js"></script>
 
     <!-- Magnific-popup -->
-    <script src="js/cocoon/jquery.magnific-popup.min.js"></script>
+    <script src="{{ url('/') }}/js/cocoon/jquery.magnific-popup.min.js"></script>
 
     <!--Counter-->
-    <script src="js/cocoon/jquery.counterup.min.js"></script>
+    <script src="{{ url('/') }}/js/cocoon/jquery.counterup.min.js"></script>
 
     <!-- WOW JS -->
-    <script src="js/cocoon/wow.min.js"></script>
+    <script src="{{ url('/') }}/js/cocoon/wow.min.js"></script>
 
     <!-- Main JS -->
-    <script src="js/cocoon/main.js"></script>
+    <script src="{{ url('/') }}/js/cocoon/main.js"></script>
 
     <!-- Function JS -->
-    <script src="js/cocoon/function.js"></script>
+    <script src="{{ url('/') }}/js/cocoon/function.js"></script>
 </body>
 
 </html>

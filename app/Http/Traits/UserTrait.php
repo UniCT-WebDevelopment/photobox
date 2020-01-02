@@ -90,4 +90,9 @@ trait UserTrait
         $this->deleteAllFeedPhoto($user);
     }
 
+    private function getUserById($id)
+    {
+        return User::find($id);
+    }
+
 }

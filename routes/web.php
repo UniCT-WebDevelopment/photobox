@@ -20,6 +20,7 @@ Route::post('login', 'UserController@login');
 Route::post('signin', 'UserController@signin');
 Route::get('logout', 'UserController@logout')->middleware('auth');
 Route::get('profile', 'UserController@profile')->middleware('auth');
+Route::get('guestProfile', 'UserController@guestProfileView')->middleware('auth');
 Route::get('editProfileInfo', 'UserController@editProfileInfoView')->middleware('auth');
 Route::post('editProfileInfo', 'UserController@editProfileInfo')->middleware('auth');
 Route::get('editProfilePhoto', 'UserController@editProfilePhotoView')->middleware('auth');
