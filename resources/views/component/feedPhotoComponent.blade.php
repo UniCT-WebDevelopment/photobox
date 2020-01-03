@@ -8,7 +8,11 @@
         <div class="photo-container">
             <div class="row photo-user">
                 <div class="col-md-7">
+                    @if($photo->users->id == $user->id)
+                    <a href="/profile">{{ $photo->users->nickname }}</a>
+                    @else
                     <a href="/guestProfile?id={{ $photo->users->id }}">{{ $photo->users->nickname }}</a>
+                    @endif
                 </div>
                 <div class="col-md-5 text-right">{{ date('d-m-Y', strtotime($photo->dataCaricamento)) }}</div>
             </div>
