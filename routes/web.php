@@ -11,7 +11,12 @@
 |
  */
 
+use Illuminate\Support\Facades\Auth;
+
 Route::get('/', function () {
+    if (Auth::check()) {
+        return redirect('/feed');
+    }
     return view('home');
 })->name('login');
 
