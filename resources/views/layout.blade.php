@@ -27,10 +27,10 @@
     <link href="{{ url('/') }}/css/cocoon/slick.css" rel="stylesheet">
 
     <!-- Magnific-popup -->
-    <link rel="stylesheet" href="{{ url('/') }}/css/cocoon/magnific-popup.css">
+    <link href="{{ url('/') }}/css/cocoon/magnific-popup.css" rel="stylesheet">
 
     <!-- Animate CSS -->
-    <link rel="stylesheet" href="{{ url('/') }}/css/cocoon/animate.min.css">
+    <link href="{{ url('/') }}/css/cocoon/animate.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="{{ url('/') }}/css/cocoon/main.css" rel="stylesheet">
@@ -40,6 +40,13 @@
 
     <!-- Cropper CSS -->
     <link href="https://unpkg.com/cropperjs/dist/cropper.css" rel="stylesheet" />
+
+    <!-- jquery UI CSS -->
+    <link href="{{ url('/') }}/css/cocoon/jquery-ui.css" rel="stylesheet">
+
+    <!-- ========== SCRIPT ========== -->
+    <!-- jquery -->
+    <script src="{{ url('/') }}/js/cocoon/jquery.min.js"></script>
 </head>
 
 <body>
@@ -73,8 +80,6 @@
     </div>
 
     <!-- ========== SCRIPT ========== -->
-    <!-- jquery -->
-    <script src="{{ url('/') }}/js/cocoon/jquery.min.js"></script>
 
     <!-- bootstrap -->
     <script src="{{ url('/') }}/js/cocoon/popper.js"></script>
@@ -102,6 +107,9 @@
 
     <!-- Function JS -->
     <script src="{{ url('/') }}/js/cocoon/function.js"></script>
+
+    <!-- Jquery UI -->
+    <script src="{{ url('/') }}/js/cocoon/jquery-ui.min.js"></script>
 </body>
 
 </html>

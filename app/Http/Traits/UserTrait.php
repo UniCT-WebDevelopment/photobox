@@ -95,4 +95,14 @@ trait UserTrait
         return User::find($id);
     }
 
+    private function searchUsersByParam($searchParam)
+    {
+        return User::where('nome', 'LIKE', "%{$searchParam}%")
+            ->OrWhere('cognome', 'LIKE', "%{$searchParam}%")
+            ->OrWhere('nickname', 'LIKE', "%{$searchParam}%")
+            ->select('id', 'nome', 'cognome', 'nickname')
+            ->distinct('id')
+            ->get()->toArray();
+    }
+
 }

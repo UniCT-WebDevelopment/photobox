@@ -188,4 +188,11 @@ class UserController extends Controller
         $listaPhoto = $guest->photos;
         return view('user.guestProfile', ['user' => Auth::user(), 'guest' => $guest, 'listaPhoto' => $listaPhoto]);
     }
+
+    public function searchUsers(Request $request)
+    {
+        $searchParam = $request->input('searchParam');
+        $response = $this->searchUsersByParam($searchParam);
+        echo json_encode($response);
+    }
 }

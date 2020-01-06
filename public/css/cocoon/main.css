@@ -2779,3 +2779,22 @@ textarea.form-control {
 .unlike-active {
     color: #ef1414!important;
 }
+
+
+/*  ----------------------------------------------------
+16 class search
+-------------------------------------------------------- */
+
+.search {
+    border-radius: .7rem;
+    border-color: #dbdbdb;
+    background-color: #f2f4f8;
+}
+
+input.search {
+    font-family: FontAwesome!important;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+}
