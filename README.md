@@ -46,3 +46,4 @@ Step:
 * Aprire il terminale dentro la cartella del progetto e lanciare i comandi: 
     * php artisan migrate
     * php artisan storage:link
+* Aprire il browser e collegarsi all'url inserito nel file .env sotto la voce APP_URL
