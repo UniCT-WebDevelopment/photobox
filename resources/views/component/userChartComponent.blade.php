@@ -4,12 +4,12 @@
 
 <div class="section_content mt50">
     <h4>Statistiche Foto</h4>
-    <div>
-        <div style="display: inline-block; ">
-            <canvas id="myChart" width="500" height="250"></canvas>
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-6">
+            <canvas id="myChart"></canvas>
         </div>
-        <div style="display: inline-block;">
-            <canvas id="myChart2" width="500" height="250"></canvas>
+        <div class="col-12 col-sm-12 col-md-6">
+            <canvas id="myChart2"></canvas>
         </div>
 
         <script>

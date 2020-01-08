@@ -7,25 +7,25 @@
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-4">
         <div class="photo-container">
             <div class="row photo-user">
-                <div class="col-md-7">
+                <div class="col-7 col-sm-7">
                     @if($photo->users->id == $user->id)
                     <a href="/profile">{{ $photo->users->nickname }}</a>
                     @else
                     <a href="/guestProfile?id={{ $photo->users->id }}">{{ $photo->users->nickname }}</a>
                     @endif
                 </div>
-                <div class="col-md-5 text-right">{{ date('d-m-Y', strtotime($photo->dataCaricamento)) }}</div>
+                <div class="col-5 col-sm-5 text-right">{{ date('d-m-Y', strtotime($photo->dataCaricamento)) }}</div>
             </div>
             <div class="photo-border"></div>
             <img class="img-responsive" src="storage/users/feed/{{ $photo->users->id }}/{{ $photo->nome }}">
             <div id="photoId_{{ $photo->id }}" class="photo-icons">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-6 col-sm-6">
                         <a class="like @if($checkLike){{"like-active"}}@endif" onclick="like({{ $photo->id }})">
                             <i class="fa fa-thumbs-up"></i>&nbsp; <span class="voto">{{ $photo->like }}</span>
                         </a>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-6 col-sm-6">
                         <a class="unlike @if($checkUnlike){{"unlike-active"}}@endif" onclick="unlike({{ $photo->id }})">
                             <i class="fa fa-thumbs-down"></i>&nbsp; <span class="voto">{{ $photo->unlike }}</span>
                         </a>

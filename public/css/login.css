@@ -702,6 +702,7 @@ input.checkbox:checked:after {
 @media(max-width:1440px) {
     input[type="text"],
     input[type="email"],
+    input[type="date"],
     input[type="password"] {
         width: 94%;
     }
@@ -755,6 +756,7 @@ input.checkbox:checked:after {
     }
     input[type="text"],
     input[type="email"],
+    input[type="date"],
     input[type="password"] {
         width: 93%;
     }
@@ -820,6 +822,7 @@ input.checkbox:checked:after {
     }
     input[type="text"],
     input[type="email"],
+    input[type="date"],
     input[type="password"] {
         width: 91%;
     }
@@ -894,6 +897,7 @@ input.checkbox:checked:after {
     }
     input[type="text"],
     input[type="email"],
+    input[type="date"],
     input[type="password"] {
         width: 89.5%;
         font-size: 0.85em;

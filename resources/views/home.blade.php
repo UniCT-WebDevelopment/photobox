@@ -63,7 +63,7 @@
 
 		<!-- copyright -->
 		<div class="colorlibcopy-agile">
-			<p>© 2019 {{ env('APP_NAME') }}. All rights reserved | Design by: {{ env('AUTHORS') }}
+			<p>© 2020 {{ env('APP_NAME') }}. All rights reserved | Design by: {{ env('AUTHORS') }}
 		</div>
 
 		<ul class="colorlib-bubbles">

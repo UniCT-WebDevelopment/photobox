@@ -1869,7 +1869,7 @@ img {
     text-transform: capitalize;
     color: #fff;
     font-weight: 400;
-    padding: 15px 50px;
+    padding: 15px 30px;
     border-radius: 0;
     outline: 0 !important;
     border: none;
@@ -1878,6 +1878,7 @@ img {
     background-color: #18181c;
     -webkit-transition: all 300ms ease-in-out;
     transition: all 300ms ease-in-out;
+    min-width: 190px;
 }
 
 .btn:hover {
@@ -1942,6 +1943,7 @@ img {
     color: #99896e;
     -webkit-transition: all 300ms ease-in-out;
     transition: all 300ms ease-in-out;
+    margin: 0.3rem;
 }
 
 .btn-primary-outline:hover {
