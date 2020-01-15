@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Traits\UserTrait;
 use App\Http\Traits\ValidatorRulesTrait;
+use App\Photo;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -185,7 +186,13 @@ class UserController extends Controller
     {
         $id = $request->input('id');
         $guest = $this->getUserById($id);
-        $listaPhoto = $guest->photos;
+        // $listaPhoto = $guest->photos;
+
+        $listaPhoto = $this->calcLikeAndUnlike(
+            Photo::where('idUtente', $guest->id)
+                ->orderBy('dataCaricamento', 'desc')->get()
+        );
+
         return view('user.guestProfile', ['user' => Auth::user(), 'guest' => $guest, 'listaPhoto' => $listaPhoto]);
     }
 

@@ -1,8 +1,8 @@
 <div class="row">
     @foreach ($listaPhoto as $photo)
     @php
-    $checkLike = App\Http\Controllers\VotoController::checkVotoExist('1', $user->id, $photo->id);
-    $checkUnlike = App\Http\Controllers\VotoController::checkVotoExist('-1', $user->id, $photo->id);
+    $checkLike = App\Http\Controllers\VotoController::checkVotoExist('1', Auth::user()->id, $photo->id);
+    $checkUnlike = App\Http\Controllers\VotoController::checkVotoExist('-1', Auth::user()->id, $photo->id);
     @endphp
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-4">
         <div class="photo-container">
