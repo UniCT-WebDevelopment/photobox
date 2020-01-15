@@ -90,7 +90,20 @@ class VotoController extends Controller
     public function getMediaVoti()
     {
         $voti = $this->getSumVotiPerMese(Auth::user());
-        $response = $this->prepareResponse($voti);
+        $response = $this->prepareResponseMediVoti($voti);
+        echo json_encode($response);
+    }
+
+    /**
+     * Calcola l'andamento dei post
+     *
+     * @param Void
+     * @return JSON
+     */
+    public function getTrendPost()
+    {
+        $post = $this->getSumPostPerMese(Auth::user());
+        $response = $this->prepareResponseNumPost($post);
         echo json_encode($response);
     }
 }

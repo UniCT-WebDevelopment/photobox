@@ -45,7 +45,17 @@ function getMediaVoti() {
         type: 'GET',
         success: function(res) {
             populateChartMediaVoti(res);
-            populateChartTrendVoti(res);
+        }
+    });
+}
+
+function getTrendPost() {
+    $.ajax({
+        url: '/trendPost',
+        dataType: 'json',
+        type: 'GET',
+        success: function(res) {
+            populateChartTrendPost(res);
         }
     });
 }
@@ -79,7 +89,7 @@ function populateChartMediaVoti(data) {
         }]
     };
 
-    var ctx = document.getElementById('myChart2').getContext('2d');
+    var ctx = document.getElementById('chartVoti').getContext('2d');
     window.myBar = new Chart(ctx, {
         type: 'bar',
         data: barChartData,
@@ -95,19 +105,19 @@ function populateChartMediaVoti(data) {
     myBar.update();
 }
 
-function populateChartTrendVoti(dataRes) {
+function populateChartTrendPost(dataRes) {
     var result = [];
     for (var i in dataRes) {
         result.push([dataRes[i]]);
     }
 
-    var ctx = document.getElementById('myChart').getContext('2d');
+    var ctx = document.getElementById('chartPost').getContext('2d');
     var chart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
             datasets: [{
-                label: 'Media voti',
+                label: 'Trand Post',
                 backgroundColor: 'rgba(254,152,81,0.2)',
                 borderColor: 'rgba(254,152,81,1)',
                 borderWidth: 2,
@@ -120,7 +130,7 @@ function populateChartTrendVoti(dataRes) {
             legend: false,
             title: {
                 display: true,
-                text: 'Trend dei Voti'
+                text: 'Trend dei Post'
             }
         }
     });

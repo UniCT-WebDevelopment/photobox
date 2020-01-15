@@ -44,3 +44,4 @@ Route::get('deletePhoto/{id}', 'FeedController@deletePhoto')->middleware('auth')
 Route::post('like', 'VotoController@like')->middleware('auth');
 Route::post('unlike', 'VotoController@unlike')->middleware('auth');
 Route::get('mediaVoti', 'VotoController@getMediaVoti')->middleware('auth');
+Route::get('trendPost', 'VotoController@getTrendPost')->middleware('auth');
