@@ -50,4 +50,4 @@ Step:
 
 ---
 
-Autori: Salvo La Torre & Gabriele Nicotra
+Autori: Salvatore La Torre & Gabriele Nicotra
