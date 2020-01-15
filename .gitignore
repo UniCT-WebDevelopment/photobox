@@ -9,3 +9,6 @@ public/storage
 .Trashes
 ehthumbs.db
 Thumbs.db
+.idea/
+.vscode/
+.vs/
