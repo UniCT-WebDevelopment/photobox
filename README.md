@@ -1,4 +1,4 @@
-SocialBox-V1.0
+PhotoBox
 ===
 Progetto Web Programming
 ---
@@ -47,3 +47,7 @@ Step:
     * php artisan migrate
     * php artisan storage:link
 * Aprire il browser e collegarsi all'url inserito nel file .env sotto la voce APP_URL
+
+---
+
+Autori: Salvo La Torre & Gabriele Nicotra
